@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Calculator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(123, 31, 162, 0.8) 0%, rgba(156, 39, 176, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #7b1fa2; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #7b1fa2; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #7b1fa2 0%, #9c27b0 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .form-section { background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select, .form-group input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .calc-btn { width: 100%; padding: 15px; background: #7b1fa2; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .calc-btn:hover { background: #6a1b9a; }
+        .result-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #7b1fa2; margin-top: 20px; }
+        .fertilizer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .fertilizer-item { background: #f3e5f5; padding: 15px; border-radius: 8px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer active" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>🧪 Fertilizer Calculator</h1>
+                <p>Calculate optimal fertilizer requirements for your crops</p>
+            </div>
+
+            <div class="content">
+                <div class="form-section">
+                    <h2>Calculate Fertilizer Requirements</h2>
+                    <form id="fertilizerForm">
+                        <div class="form-group">
+                            <label for="crop">Crop Type</label>
+                            <select id="crop" required>
+                                <option value="">Select Crop</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Maize">Maize</option>
+                                <option value="Potato">Potato</option>
+                                <option value="Onion">Onion</option>
+                                <option value="Tomato">Tomato</option>
+                                <option value="Groundnut">Groundnut</option>
+                                <option value="Cabbage">Cabbage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="area">Farm Area (Acres)</label>
+                            <input type="number" id="area" min="0.1" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="soilType">Soil Type</label>
+                            <select id="soilType" required>
+                                <option value="">Select Soil Type</option>
+                                <option value="Clay">Clay</option>
+                                <option value="Sandy">Sandy</option>
+                                <option value="Loamy">Loamy</option>
+                                <option value="Black">Black Cotton</option>
+                                <option value="Red">Red Soil</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="calc-btn">Calculate Fertilizer</button>
+                    </form>
+                    <div id="fertilizerResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('fertilizerForm').addEventListener('submit', handleFertilizerCalc);
+        });
+        
+        async function handleFertilizerCalc(e) {
+            e.preventDefault();
+            
+            const crop = document.getElementById('crop').value;
+            const area = parseFloat(document.getElementById('area').value);
+            const soilType = document.getElementById('soilType').value;
+            
+            if (!crop || !area || !soilType) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            const fertilizer = calculateFertilizer(crop, area, soilType);
+            showFertilizerResults(crop, area, fertilizer);
+        }
+        
+        function calculateFertilizer(crop, area, soilType) {
+            // Base fertilizer requirements per acre (kg)
+            const baseRequirements = {
+                'Rice': { N: 120, P: 60, K: 40 },
+                'Wheat': { N: 100, P: 50, K: 30 },
+                'Maize': { N: 150, P: 75, K: 50 },
+                'Potato': { N: 180, P: 90, K: 120 },
+                'Onion': { N: 100, P: 50, K: 50 },
+                'Tomato': { N: 200, P: 100, K: 150 },
+                'Groundnut': { N: 25, P: 50, K: 75 },
+                'Cabbage': { N: 120, P: 60, K: 100 }
+            };
+            
+            // Soil adjustment factors
+            const soilFactors = {
+                'Clay': { N: 1.1, P: 1.2, K: 0.9 },
+                'Sandy': { N: 1.2, P: 1.0, K: 1.3 },
+                'Loamy': { N: 1.0, P: 1.0, K: 1.0 },
+                'Black': { N: 0.9, P: 1.1, K: 0.8 },
+                'Red': { N: 1.1, P: 1.3, K: 1.1 }
+            };
+            
+            const base = baseRequirements[crop];
+            const factor = soilFactors[soilType];
+            
+            return {
+                nitrogen: Math.round(base.N * factor.N * area),
+                phosphorus: Math.round(base.P * factor.P * area),
+                potassium: Math.round(base.K * factor.K * area),
+                urea: Math.round(base.N * factor.N * area * 2.17), // Urea is 46% N
+                dap: Math.round(base.P * factor.P * area * 2.17), // DAP is 46% P2O5
+                mop: Math.round(base.K * factor.K * area * 1.67)  // MOP is 60% K2O
+            };
+        }
+        
+        function showFertilizerResults(crop, area, fertilizer) {
+            const cost = calculateCost(fertilizer);
+            
+            document.getElementById('fertilizerResults').innerHTML = `
+                <div class="result-card">
+                    <h3>🧪 Fertilizer Requirements for ${crop} (${area} acres)</h3>
+                    
+                    <h4 style="margin: 20px 0 10px 0;">Primary Nutrients (kg)</h4>
+                    <div class="fertilizer-grid">
+                        <div class="fertilizer-item">
+                            <h4>Nitrogen (N)</h4>
+                            <p>${fertilizer.nitrogen} kg</p>
+                        </div>
+                        <div class="fertilizer-item">
+                            <h4>Phosphorus (P)</h4>
+                            <p>${fertilizer.phosphorus} kg</p>
+                        </div>
+                        <div class="fertilizer-item">
+                            <h4>Potassium (K)</h4>
+                            <p>${fertilizer.potassium} kg</p>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin: 20px 0 10px 0;">Commercial Fertilizers (kg)</h4>
+                    <div class="fertilizer-grid">
+                        <div class="fertilizer-item">
+                            <h4>Urea</h4>
+                            <p>${fertilizer.urea} kg</p>
+                            <small>₹${cost.urea}</small>
+                        </div>
+                        <div class="fertilizer-item">
+                            <h4>DAP</h4>
+                            <p>${fertilizer.dap} kg</p>
+                            <small>₹${cost.dap}</small>
+                        </div>
+                        <div class="fertilizer-item">
+                            <h4>MOP</h4>
+                            <p>${fertilizer.mop} kg</p>
+                            <small>₹${cost.mop}</small>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center;">
+                        <h4>💰 Total Estimated Cost: ₹${cost.total}</h4>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h4>📋 Application Tips</h4>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Apply 50% nitrogen at planting, 50% at flowering</li>
+                            <li>Apply full phosphorus and potassium at planting</li>
+                            <li>Conduct soil test for precise requirements</li>
+                            <li>Consider organic alternatives like compost</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function calculateCost(fertilizer) {
+            // Approximate prices per kg (₹)
+            const prices = { urea: 6, dap: 27, mop: 17 };
+            
+            return {
+                urea: fertilizer.urea * prices.urea,
+                dap: fertilizer.dap * prices.dap,
+                mop: fertilizer.mop * prices.mop,
+                total: (fertilizer.urea * prices.urea) + (fertilizer.dap * prices.dap) + (fertilizer.mop * prices.mop)
+            };
+        }
+    </script>
+</body>
+</html>

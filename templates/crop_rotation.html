@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Rotation System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.8) 0%, rgba(247, 147, 30, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #ff6b35; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #ff6b35; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .info-card { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .form-section { background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select, .form-group input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .recommend-btn { width: 100%; padding: 15px; background: #ff6b35; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .recommend-btn:hover { background: #f7931e; }
+        .recommendation-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #ff6b35; margin-top: 20px; }
+        .crop-display { font-size: 1.5em; font-weight: bold; color: #ff6b35; text-align: center; margin: 15px 0; }
+        .profit-info { background: #e8f5e8; padding: 15px; border-radius: 5px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation active" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+        <div class="header">
+            <h1>Crop Rotation System</h1>
+            <p>Optimize Your Agricultural Planning</p>
+        </div>
+
+        <div class="content">
+            <div class="info-card">
+                <h2>Smart Crop Rotation</h2>
+                <p>Our AI-powered system analyzes:</p>
+                <ul>
+                    <li><strong>Profit Potential</strong> - Real price predictions</li>
+                    <li><strong>Soil Compatibility</strong> - Best crops for your soil</li>
+                    <li><strong>Seasonal Timing</strong> - Optimal planting periods</li>
+                    <li><strong>Rotation Benefits</strong> - Pest control & soil health</li>
+                </ul>
+            </div>
+
+            <div class="form-section">
+                <h2>Get Crop Recommendation</h2>
+                <form id="recommendationForm">
+                    <div class="form-group">
+                        <label for="soilType">Soil Type</label>
+                        <select id="soilType" required>
+                            <option value="">Select Soil Type</option>
+                            <option value="Clay">Clay</option>
+                            <option value="Sandy">Sandy</option>
+                            <option value="Loamy">Loamy</option>
+                            <option value="Black">Black Cotton</option>
+                            <option value="Red">Red Soil</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currentMonth">Current Month</label>
+                        <select id="currentMonth" required>
+                            <option value="">Select Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="previousCrop">Previous Crop</label>
+                        <select id="previousCrop" required>
+                            <option value="">Select Previous Crop</option>
+                            <option value="Rice">Rice</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Maize">Maize</option>
+                            <option value="Onion">Onion</option>
+                            <option value="Potato">Potato</option>
+                            <option value="Tomato">Tomato</option>
+                            <option value="Groundnut">Groundnut</option>
+                            <option value="Cabbage">Cabbage</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="district">Marketing District</label>
+                        <select id="district" required>
+                            <option value="">Select District</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="area">Farm Area (Acres)</label>
+                        <input type="number" id="area" min="0.1" step="0.1" value="1" required>
+                    </div>
+                    
+                    <button type="submit" class="recommend-btn">Get Profit-Based Recommendation</button>
+                </form>
+                
+                <div id="recommendationResult"></div>
+            </div>
+            
+            <div class="info-card">
+                <h2>General Rotation Cycles</h2>
+                <p><strong>Rice → Wheat → Legumes</strong></p>
+                <p><strong>Maize → Potato → Onion</strong></p>
+                <p><strong>Tomato → Cabbage → Groundnut</strong></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDistricts();
+            document.getElementById('recommendationForm').addEventListener('submit', handleRecommendation);
+        });
+        
+        async function loadDistricts() {
+            try {
+                const response = await fetch('/api/options');
+                const options = await response.json();
+                const districtSelect = document.getElementById('district');
+                
+                options.districts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading districts:', error);
+            }
+        }
+        
+        async function handleRecommendation(e) {
+            e.preventDefault();
+            
+            const data = {
+                soilType: document.getElementById('soilType').value,
+                currentMonth: document.getElementById('currentMonth').value,
+                previousCrop: document.getElementById('previousCrop').value,
+                district: document.getElementById('district').value,
+                area: document.getElementById('area').value
+            };
+            
+            if (!data.soilType || !data.currentMonth || !data.previousCrop || !data.district || !data.area) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/recommend-crop', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showRecommendation(result);
+                } else {
+                    showError(result.error);
+                }
+            } catch (error) {
+                showError('Error getting recommendation: ' + error.message);
+            }
+        }
+        
+        function showRecommendation(result) {
+            let alternativesHtml = '';
+            if (result.alternatives && result.alternatives.length > 0) {
+                // Corrected property name from 'commodity' to 'name' as per app.py's alternativeCrops structure
+                alternativesHtml = '<h4>📊 Alternative Options:</h4>';
+                result.alternatives.forEach((alt, index) => {
+                    alternativesHtml += `
+                        <div style="background: #f8f9fa; padding: 10px; margin: 5px 0; border-radius: 5px; border-left: 3px solid #6c757d;">
+                            <strong>${index + 2}. ${alt.name}</strong><br>
+                            Profit: ₹${alt.profit.toLocaleString()} | Duration: ${alt.duration_months} months
+                        </div>
+                    `;
+                });
+            }
+
+            
+            document.getElementById('recommendationResult').innerHTML = `
+                <div class="recommendation-card">
+                    <h3>🌾 Best Crop for Maximum Profit</h3>
+                    <div class="crop-display">${result.recommendedCrop}</div>
+                    
+                    <div class="profit-info" style="margin: 20px 0;">
+                        <h4>💰 Profit Analysis</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0;">
+                            <div><strong>Total Revenue:</strong><br>₹${result.expectedProfit ? result.expectedProfit.toLocaleString() : 'N/A'}</div>
+                            <div><strong>Price/Quintal:</strong><br>₹${result.expectedPrice}</div>
+                        </div>
+                        <p><strong>Harvest Time:</strong> ${result.harvestTime}</p>
+                        <p><strong>Season:</strong> ${result.season}</p>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #ffc107;">
+                        <h4>⚠️ Risk Level: ${result.riskLevel}</h4>
+                    </div>
+                    
+                    <div style="white-space: pre-line; line-height: 1.6; margin: 15px 0;">
+                        ${result.reason}
+                    </div>
+                    
+                    ${alternativesHtml}
+                </div>
+            `;
+        }
+        
+        function showError(message) {
+            document.getElementById('recommendationResult').innerHTML = `
+                <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                    <strong>Error:</strong> ${message}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

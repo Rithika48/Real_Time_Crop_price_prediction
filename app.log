@@ -1,0 +1,20 @@
+/home/tushar/crop_final/final pro/app.py:23: DtypeWarning: Columns (6,7) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv("final_complete_data.csv")
+2025-12-15 21:07:01,973 - INFO - Data loaded successfully! Shape: (270400, 10)
+2025-12-15 21:07:01,973 - INFO - Columns: ['District', 'Market', 'Commodity', 'Variety', 'Grade', 'Min Price (Rs./Quintal)', 'Max Price (Rs./Quintal)', 'Modal Price (Rs./Quintal)', 'Date', 'Arrivals (MT)']
+2025-12-15 21:07:01,979 - INFO - Sample districts: ['Bagalkot' 'Bangalore' 'Belgaum' 'Bellary' 'Bidar']
+2025-12-15 21:07:01,984 - INFO - Sample commodities: ['Groundnut' 'Onion' 'Sunflower' 'Wheat' 'Coconut']
+ * Serving Flask app 'app'
+ * Debug mode: on
+2025-12-15 21:07:01,993 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-12-15 21:07:01,993 - INFO - [33mPress CTRL+C to quit[0m
+2025-12-15 21:07:01,993 - INFO -  * Restarting with stat
+/home/tushar/crop_final/final pro/app.py:23: DtypeWarning: Columns (6,7) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv("final_complete_data.csv")
+2025-12-15 21:07:02,971 - INFO - Data loaded successfully! Shape: (270400, 10)
+2025-12-15 21:07:02,971 - INFO - Columns: ['District', 'Market', 'Commodity', 'Variety', 'Grade', 'Min Price (Rs./Quintal)', 'Max Price (Rs./Quintal)', 'Modal Price (Rs./Quintal)', 'Date', 'Arrivals (MT)']
+2025-12-15 21:07:02,979 - INFO - Sample districts: ['Bagalkot' 'Bangalore' 'Belgaum' 'Bellary' 'Bidar']
+2025-12-15 21:07:02,984 - INFO - Sample commodities: ['Groundnut' 'Onion' 'Sunflower' 'Wheat' 'Coconut']
+2025-12-15 21:07:02,994 - WARNING -  * Debugger is active!
+2025-12-15 21:07:02,996 - INFO -  * Debugger PIN: 768-273-081

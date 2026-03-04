@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Assistant</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(63, 81, 181, 0.8) 0%, rgba(103, 58, 183, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #3f51b5; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #3f51b5; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column; height: 80vh; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } .container { height: 70vh; } }
+        .header { background: linear-gradient(135deg, #3f51b5 0%, #673ab7 100%); color: white; padding: 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 5px; }
+        .chat-container { flex: 1; display: flex; flex-direction: column; padding: 20px; }
+        .chat-messages { flex: 1; overflow-y: scroll; max-height: 400px; border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f8f9fa; }
+        .message { margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .message.user { justify-content: flex-end; }
+        .message.bot { justify-content: flex-start; }
+        .message-content { max-width: 70%; padding: 10px 15px; border-radius: 15px; }
+        .message.user .message-content { background: #3f51b5; color: white; }
+        .message.bot .message-content { background: white; border: 1px solid #ddd; }
+        .message-avatar { width: 35px; height: 35px; border-radius: 50%; margin: 0 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .message.user .message-avatar { background: #3f51b5; color: white; }
+        .message.bot .message-avatar { background: #4caf50; color: white; }
+        .chat-input { display: flex; gap: 10px; }
+        .chat-input input { flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 25px; font-size: 16px; }
+        .chat-input button { padding: 12px 20px; background: #3f51b5; color: white; border: none; border-radius: 25px; cursor: pointer; }
+        .chat-input button:hover { background: #303f9f; }
+        .quick-questions { margin-bottom: 15px; }
+        .quick-btn { display: inline-block; margin: 5px; padding: 8px 15px; background: #e3f2fd; color: #1976d2; border: 1px solid #1976d2; border-radius: 20px; cursor: pointer; font-size: 14px; user-select: none; }
+        .quick-btn:hover { background: #1976d2; color: white; transform: translateY(-1px); }
+        .quick-btn:active { transform: translateY(0); }
+        .typing-indicator { display: none; align-items: center; margin-bottom: 15px; }
+        .typing-dots { display: flex; gap: 3px; }
+        .typing-dots span { width: 8px; height: 8px; border-radius: 50%; background: #666; animation: typing 1.4s infinite; }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px); } }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>🤖 Farm Assistant</h1>
+                <p>Your AI-powered farming companion</p>
+            </div>
+
+            <div class="chat-container">
+                <div class="quick-questions">
+                    <div style="margin-bottom: 10px; font-weight: bold;">Quick Questions:</div>
+                    <span class="quick-btn" onclick="askQuestion('What crops should I plant this season?')">Crop Selection</span>
+                    <span class="quick-btn" onclick="askQuestion('How to increase crop yield?')">Increase Yield</span>
+                    <span class="quick-btn" onclick="askQuestion('Best fertilizer for rice?')">Fertilizer Advice</span>
+                    <span class="quick-btn" onclick="askQuestion('Pest control methods?')">Pest Control</span>
+                    <span class="quick-btn" onclick="askQuestion('Irrigation best practices?')">Irrigation Tips</span>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            Hello! I'm your Farm Assistant. I can help you with:
+                            <br>• Crop selection and planning
+                            <br>• Fertilizer recommendations
+                            <br>• Pest and disease management
+                            <br>• Weather-based farming advice
+                            <br>• Market insights and pricing
+                            <br><br>What would you like to know about farming today?
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="message-avatar">🤖</div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span style="margin-left: 10px; color: #666;">Farm Assistant is typing...</span>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Ask me anything about farming..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function askQuestion(question) {
+            document.getElementById('messageInput').value = question;
+            sendMessage();
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Show typing indicator
+            showTyping();
+            
+            // Send to chatbot API
+            fetch('/api/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideTyping();
+                if (data.success) {
+                    addMessage(data.response, 'bot');
+                } else {
+                    addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+                }
+            })
+            .catch(error => {
+                hideTyping();
+                addMessage('Sorry, I\'m having trouble connecting. Please try again.', 'bot');
+            });
+        }
+        
+        function addMessage(message, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const avatar = sender === 'user' ? '👤' : '🤖';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">${message}</div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function showTyping() {
+            document.getElementById('typingIndicator').style.display = 'flex';
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function hideTyping() {
+            document.getElementById('typingIndicator').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

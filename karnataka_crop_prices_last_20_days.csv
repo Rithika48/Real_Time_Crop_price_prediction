@@ -1,0 +1,594 @@
+commodity,sl_no,district,market,variety,grade,min_price,max_price,modal_price,price_date
+Tomato,1,Kolar,Bangarpet,Tomato,Local,400,1000,800,07 Oct 2025
+Tomato,2,Kolar,Bangarpet,Tomato,Local,450,1000,710,08 Oct 2025
+Tomato,3,Kolar,Bangarpet,Tomato,Local,700,1200,900,03 Oct 2025
+Tomato,4,Kolar,Bangarpet,Tomato,Local,700,1500,1000,23 Oct 2025
+Tomato,5,Kolar,Bangarpet,Tomato,Local,800,1200,1000,16 Oct 2025
+Tomato,6,Kolar,Bangarpet,Tomato,Local,800,1200,1000,17 Oct 2025
+Tomato,7,Kolar,Bangarpet,Tomato,Local,800,1500,1000,13 Oct 2025
+Tomato,8,Kolar,Bangarpet,Tomato,Local,800,1500,1200,21 Oct 2025
+Tomato,9,Kolar,Bangarpet,Tomato,Local,900,1000,900,11 Oct 2025
+Tomato,10,Kolar,Bangarpet,Tomato,Local,900,1000,900,20 Oct 2025
+Tomato,11,Kolar,Bangarpet,Tomato,Local,900,1500,1000,09 Oct 2025
+Tomato,12,Kolar,Bangarpet,Tomato,Local,1000,1300,1000,18 Oct 2025
+Tomato,13,Kolar,Bangarpet,Tomato,Local,1000,1500,1200,10 Oct 2025
+Tomato,14,Kolar,Bangarpet,Tomato,Local,1000,2000,1500,22 Oct 2025
+Tomato,15,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1000,1400,1200,13 Oct 2025
+Tomato,16,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1200,1600,1400,15 Oct 2025
+Tomato,17,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1300,1500,1400,18 Oct 2025
+Tomato,18,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1400,1600,1500,14 Oct 2025
+Tomato,19,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1400,1600,1500,16 Oct 2025
+Tomato,20,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1400,1600,1500,17 Oct 2025
+Tomato,21,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1400,1600,1500,21 Oct 2025
+Tomato,22,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1500,1700,1600,06 Oct 2025
+Tomato,23,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1500,1700,1600,08 Oct 2025
+Tomato,24,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1500,1700,1600,09 Oct 2025
+Tomato,25,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1500,1700,1600,23 Oct 2025
+Tomato,26,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1600,1800,1700,04 Oct 2025
+Tomato,27,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1700,1900,1800,03 Oct 2025
+Tomato,28,Chamrajnagar,Chamaraj Nagar,Tomato,Local,400,1200,900,14 Oct 2025
+Tomato,29,Chamrajnagar,Chamaraj Nagar,Tomato,Local,500,1200,900,16 Oct 2025
+Tomato,30,Chamrajnagar,Chamaraj Nagar,Tomato,Local,500,1200,900,17 Oct 2025
+Tomato,31,Chamrajnagar,Chamaraj Nagar,Tomato,Local,500,1200,900,21 Oct 2025
+Tomato,32,Chamrajnagar,Chamaraj Nagar,Tomato,Local,500,1400,1000,18 Oct 2025
+Tomato,33,Chamrajnagar,Chamaraj Nagar,Tomato,Local,500,1500,1000,23 Oct 2025
+Tomato,34,Chamrajnagar,Chamaraj Nagar,Tomato,Local,600,1200,900,15 Oct 2025
+Tomato,35,Chamrajnagar,Chamaraj Nagar,Tomato,Local,600,1400,1000,13 Oct 2025
+Tomato,36,Chamrajnagar,Chamaraj Nagar,Tomato,Local,600,1500,1050,08 Oct 2025
+Tomato,37,Chamrajnagar,Chamaraj Nagar,Tomato,Local,800,1200,1000,04 Oct 2025
+Tomato,38,Chamrajnagar,Chamaraj Nagar,Tomato,Local,800,1300,1050,06 Oct 2025
+Tomato,39,Chamrajnagar,Chamaraj Nagar,Tomato,Local,800,1400,1100,10 Oct 2025
+Tomato,40,Chamrajnagar,Chamaraj Nagar,Tomato,Local,800,1500,1150,09 Oct 2025
+Tomato,41,Chamrajnagar,Chamaraj Nagar,Tomato,Local,1000,1500,1300,03 Oct 2025
+Tomato,42,Bangalore,Channapatana,Tomato,Local,650,1500,1000,17 Oct 2025
+Tomato,43,Bangalore,Channapatana,Tomato,Local,750,1650,1100,22 Oct 2025
+Tomato,44,Bangalore,Channapatana,Tomato,Local,750,1650,1200,08 Oct 2025
+Tomato,45,Bangalore,Channapatana,Tomato,Local,750,1650,1200,09 Oct 2025
+Tomato,46,Bangalore,Channapatana,Tomato,Local,750,1650,1200,14 Oct 2025
+Tomato,47,Bangalore,Channapatana,Tomato,Local,850,1650,1150,16 Oct 2025
+Tomato,48,Bangalore,Channapatana,Tomato,Local,850,1850,1500,13 Oct 2025
+Tomato,49,Bangalore,Channapatana,Tomato,Local,900,1750,1350,06 Oct 2025
+Tomato,50,Bangalore,Channapatana,Tomato,Local,900,1750,1350,07 Oct 2025
+Tomato,51,Bangalore,Channapatana,Tomato,Local,900,1900,1500,23 Oct 2025
+Tomato,52,Bangalore,Channapatana,Tomato,Local,2500,3000,2700,15 Oct 2025
+Tomato,53,Kolar,Chickkaballapura,Tomato,Local,400,1500,940,12 Oct 2025
+Tomato,54,Kolar,Chickkaballapura,Tomato,Local,400,1520,950,11 Oct 2025
+Tomato,55,Kolar,Chickkaballapura,Tomato,Local,400,1540,960,10 Oct 2025
+Tomato,56,Kolar,Chickkaballapura,Tomato,Local,400,1540,960,21 Oct 2025
+Tomato,57,Kolar,Chickkaballapura,Tomato,Local,400,1650,1020,20 Oct 2025
+Tomato,58,Kolar,Chickkaballapura,Tomato,Local,400,1690,1040,13 Oct 2025
+Tomato,59,Chikmagalur,Chikkamagalore,Tomato,Local,1097,1297,1197,16 Oct 2025
+Tomato,60,Chikmagalur,Chikkamagalore,Tomato,Local,1199,1399,1299,23 Oct 2025
+Tomato,61,Chikmagalur,Chikkamagalore,Tomato,Local,1233,1433,1333,15 Oct 2025
+Tomato,62,Chikmagalur,Chikkamagalore,Tomato,Local,1306,1506,1406,09 Oct 2025
+Tomato,63,Chikmagalur,Chikkamagalore,Tomato,Local,1313,1513,1413,13 Oct 2025
+Tomato,64,Chikmagalur,Chikkamagalore,Tomato,Local,1333,1533,1433,18 Oct 2025
+Tomato,65,Chikmagalur,Chikkamagalore,Tomato,Local,1334,1334,1334,14 Oct 2025
+Tomato,66,Chikmagalur,Chikkamagalore,Tomato,Local,1336,1536,1436,08 Oct 2025
+Tomato,67,Chikmagalur,Chikkamagalore,Tomato,Local,1360,1560,1460,10 Oct 2025
+Tomato,68,Chikmagalur,Chikkamagalore,Tomato,Local,1630,1830,1730,06 Oct 2025
+Tomato,69,Kolar,Chintamani,Tomato,Local,300,1660,1000,10 Oct 2025
+Tomato,70,Kolar,Chintamani,Tomato,Local,300,1660,1000,11 Oct 2025
+Tomato,71,Kolar,Chintamani,Tomato,Local,300,1800,1060,13 Oct 2025
+Tomato,72,Kolar,Chintamani,Tomato,Local,330,1660,1333,18 Oct 2025
+Tomato,73,Kolar,Chintamani,Tomato,Local,330,1730,1000,06 Oct 2025
+Tomato,74,Kolar,Chintamani,Tomato,Local,330,1800,1000,14 Oct 2025
+Tomato,75,Kolar,Chintamani,Tomato,Local,330,1800,1060,04 Oct 2025
+Tomato,76,Kolar,Chintamani,Tomato,Local,330,1860,1000,03 Oct 2025
+Tomato,77,Kolar,Chintamani,Tomato,Local,330,2000,1130,15 Oct 2025
+Tomato,78,Kolar,Chintamani,Tomato,Local,330,2330,1330,22 Oct 2025
+Tomato,79,Kolar,Chintamani,Tomato,Local,330,2660,1330,23 Oct 2025
+Tomato,80,Bangalore,Doddaballa Pur,Tomato,Local,1000,1400,1200,18 Oct 2025
+Tomato,81,Kolar,Gowribidanoor,Tomato,Local,800,1500,1300,15 Oct 2025
+Tomato,82,Kolar,Gowribidanoor,Tomato,Local,800,1800,1200,16 Oct 2025
+Tomato,83,Kolar,Gowribidanoor,Tomato,Local,1000,2000,1500,03 Oct 2025
+Tomato,84,Kolar,Gowribidanoor,Tomato,Local,1000,2000,1500,04 Oct 2025
+Tomato,85,Kolar,Gowribidanoor,Tomato,Local,1000,2000,1500,18 Oct 2025
+Tomato,86,Kolar,Gowribidanoor,Tomato,Local,1000,2000,1500,22 Oct 2025
+Tomato,87,Kolar,Gowribidanoor,Tomato,Local,1500,2500,2000,23 Oct 2025
+Tomato,88,Chamrajnagar,Gundlupet,Tomato,Local,1100,1200,1200,16 Oct 2025
+Tomato,89,Chamrajnagar,Gundlupet,Tomato,Local,1300,1400,1400,08 Oct 2025
+Tomato,90,Chamrajnagar,Gundlupet,Tomato,Local,1400,1500,1500,04 Oct 2025
+Tomato,91,Chamrajnagar,Gundlupet,Tomato,Local,1500,1500,1500,15 Oct 2025
+Tomato,92,Chamrajnagar,Gundlupet,Tomato,Local,1500,1500,1500,21 Oct 2025
+Tomato,93,Chamrajnagar,Gundlupet,Tomato,Local,1500,1500,1500,23 Oct 2025
+Tomato,94,Chamrajnagar,Gundlupet,Tomato,Local,1600,1600,1600,14 Oct 2025
+Tomato,95,Chamrajnagar,Gundlupet,Tomato,Local,1700,1700,1700,09 Oct 2025
+Tomato,96,Chamrajnagar,Gundlupet,Tomato,Local,1700,1700,1700,10 Oct 2025
+Tomato,97,Chamrajnagar,Gundlupet,Tomato,Local,1700,1700,1700,13 Oct 2025
+Tomato,98,Hassan,Hassan,Tomato,Local,1000,1400,1200,14 Oct 2025
+Tomato,99,Hassan,Hassan,Tomato,Local,1000,1500,1000,15 Oct 2025
+Tomato,100,Bellary,Hospet,Tomato,Local,500,1000,800,17 Oct 2025
+Tomato,101,Bellary,Hospet,Tomato,Local,600,1200,1000,14 Oct 2025
+Tomato,102,Bellary,Hospet,Tomato,Local,700,1000,800,08 Oct 2025
+Tomato,103,Bellary,Hospet,Tomato,Local,800,1000,800,05 Oct 2025
+Tomato,104,Bellary,Hospet,Tomato,Local,800,1000,800,06 Oct 2025
+Tomato,105,Bellary,Hospet,Tomato,Local,800,1000,800,12 Oct 2025
+Tomato,106,Bellary,Hospet,Tomato,Local,800,1000,900,15 Oct 2025
+Tomato,107,Bellary,Hospet,Tomato,Local,800,1000,900,19 Oct 2025
+Tomato,108,Bellary,Hospet,Tomato,Local,800,1000,1000,04 Oct 2025
+Tomato,109,Bellary,Hospet,Tomato,Local,800,1000,1000,18 Oct 2025
+Tomato,110,Bellary,Hospet,Tomato,Local,800,1200,1200,03 Oct 2025
+Tomato,111,Mandya,K.R. Pet,Tomato,Local,1400,1700,1700,10 Oct 2025
+Tomato,112,Mandya,K.R. Pet,Tomato,Local,1500,1500,1500,03 Oct 2025
+Tomato,113,Mandya,K.R. Pet,Tomato,Local,1500,1500,1500,07 Oct 2025
+Tomato,114,Mandya,K.R. Pet,Tomato,Local,1500,1500,1500,12 Oct 2025
+Tomato,115,Mandya,K.R. Pet,Tomato,Local,1500,1500,1500,14 Oct 2025
+Tomato,116,Mandya,K.R. Pet,Tomato,Local,1500,1500,1500,15 Oct 2025
+Tomato,117,Mandya,K.R. Pet,Tomato,Local,1500,1500,1500,16 Oct 2025
+Tomato,118,Mandya,K.R. Pet,Tomato,Local,1500,1500,1500,20 Oct 2025
+Tomato,119,Kalburgi,Kalburgi,Tomato,Local,400,1000,700,11 Oct 2025
+Tomato,120,Kalburgi,Kalburgi,Tomato,Local,500,1000,750,03 Oct 2025
+Tomato,121,Kalburgi,Kalburgi,Tomato,Local,500,1000,750,08 Oct 2025
+Tomato,122,Kalburgi,Kalburgi,Tomato,Local,500,1000,750,09 Oct 2025
+Tomato,123,Kalburgi,Kalburgi,Tomato,Local,500,1000,750,14 Oct 2025
+Tomato,124,Kalburgi,Kalburgi,Tomato,Local,500,1000,750,15 Oct 2025
+Tomato,125,Kalburgi,Kalburgi,Tomato,Local,500,1000,750,16 Oct 2025
+Tomato,126,Kalburgi,Kalburgi,Tomato,Local,500,1000,750,17 Oct 2025
+Tomato,127,Kalburgi,Kalburgi,Tomato,Local,500,1200,850,23 Oct 2025
+Tomato,128,Kalburgi,Kalburgi,Tomato,Local,800,1000,900,06 Oct 2025
+Tomato,129,Kolar,Kolar,Tomato,Local,300,1660,1130,14 Oct 2025
+Tomato,130,Kolar,Kolar,Tomato,Local,300,1860,1130,03 Oct 2025
+Tomato,131,Kolar,Kolar,Tomato,Local,330,2000,1200,04 Oct 2025
+Tomato,132,Kolar,Kolar,Tomato,Local,330,2000,1260,16 Oct 2025
+Tomato,133,Kolar,Kolar,Tomato,Local,330,2000,1330,15 Oct 2025
+Tomato,134,Kolar,Kolar,Tomato,Local,330,2000,1400,20 Oct 2025
+Tomato,135,Kolar,Kolar,Tomato,Local,330,2260,1400,08 Oct 2025
+Tomato,136,Kolar,Kolar,Tomato,Local,330,2330,1460,21 Oct 2025
+Tomato,137,Kolar,Mulabagilu,Tomato,Local,333,1666,1000,20 Oct 2025
+Tomato,138,Kolar,Mulabagilu,Tomato,Local,333,1800,933,11 Oct 2025
+Tomato,139,Kolar,Mulabagilu,Tomato,Local,333,1800,1000,13 Oct 2025
+Tomato,140,Kolar,Mulabagilu,Tomato,Local,333,2000,1000,10 Oct 2025
+Tomato,141,Kolar,Mulabagilu,Tomato,Local,333,2000,1066,21 Oct 2025
+Tomato,142,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1000,1200,1100,16 Oct 2025
+Tomato,143,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1000,1200,1100,17 Oct 2025
+Tomato,144,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1100,1300,1200,06 Oct 2025
+Tomato,145,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1300,1500,1400,03 Oct 2025
+Tomato,146,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1300,1500,1400,15 Oct 2025
+Tomato,147,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1300,1500,1400,22 Oct 2025
+Tomato,148,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1500,1700,1600,08 Oct 2025
+Tomato,149,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1500,1700,1600,09 Oct 2025
+Tomato,150,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1500,1700,1600,12 Oct 2025
+Tomato,151,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1500,1700,1600,13 Oct 2025
+Tomato,152,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1500,1700,1600,14 Oct 2025
+Tomato,153,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1800,2000,1900,23 Oct 2025
+Tomato,154,Bangalore,Ramanagara,Tomato,Local,800,1300,1000,22 Oct 2025
+Tomato,155,Bangalore,Ramanagara,Tomato,Local,800,1500,1250,17 Oct 2025
+Tomato,156,Bangalore,Ramanagara,Tomato,Local,800,1600,1200,16 Oct 2025
+Tomato,157,Bangalore,Ramanagara,Tomato,Local,800,1600,1200,18 Oct 2025
+Tomato,158,Bangalore,Ramanagara,Tomato,Local,800,1700,1200,07 Oct 2025
+Tomato,159,Bangalore,Ramanagara,Tomato,Local,1000,1600,1400,03 Oct 2025
+Tomato,160,Bangalore,Ramanagara,Tomato,Local,1000,1600,1400,05 Oct 2025
+Tomato,161,Bangalore,Ramanagara,Tomato,Local,1000,1600,1400,19 Oct 2025
+Tomato,162,Bangalore,Ramanagara,Tomato,Local,1000,1600,1400,21 Oct 2025
+Tomato,163,Bangalore,Ramanagara,Tomato,Local,1000,1700,1400,10 Oct 2025
+Tomato,164,Bangalore,Ramanagara,Tomato,Local,1000,1800,1500,04 Oct 2025
+Tomato,165,Bangalore,Ramanagara,Tomato,Local,1000,1800,1500,06 Oct 2025
+Tomato,166,Bangalore,Ramanagara,Tomato,Local,1000,1800,1500,13 Oct 2025
+Tomato,167,Bangalore,Ramanagara,Tomato,Local,1000,1800,1600,08 Oct 2025
+Tomato,168,Bangalore,Ramanagara,Tomato,Local,1000,2000,1600,14 Oct 2025
+Tomato,169,Bangalore,Ramanagara,Tomato,Local,1200,1800,1500,09 Oct 2025
+Tomato,170,Bangalore,Ramanagara,Tomato,Local,1200,1800,1500,20 Oct 2025
+Tomato,171,Bangalore,Ramanagara,Tomato,Local,1200,1800,1500,23 Oct 2025
+Tomato,172,Bangalore,Ramanagara,Tomato,Local,1200,2000,1500,12 Oct 2025
+Tomato,173,Bangalore,Ramanagara,Tomato,Local,1200,2000,1600,15 Oct 2025
+Tomato,174,Shimoga,Shimoga,Tomato,Local,400,1000,700,09 Oct 2025
+Tomato,175,Shimoga,Shimoga,Tomato,Local,400,1200,800,03 Oct 2025
+Tomato,176,Shimoga,Shimoga,Tomato,Local,400,1200,800,06 Oct 2025
+Tomato,177,Shimoga,Shimoga,Tomato,Local,400,1200,800,08 Oct 2025
+Tomato,178,Shimoga,Shimoga,Tomato,Local,400,1200,800,10 Oct 2025
+Tomato,179,Shimoga,Shimoga,Tomato,Local,400,1200,800,15 Oct 2025
+Tomato,180,Shimoga,Shimoga,Tomato,Local,400,1200,800,16 Oct 2025
+Tomato,181,Shimoga,Shimoga,Tomato,Local,400,1200,800,17 Oct 2025
+Tomato,182,Shimoga,Shimoga,Tomato,Local,400,1400,900,14 Oct 2025
+Tomato,183,Shimoga,Shimoga,Tomato,Local,400,1600,1000,13 Oct 2025
+Tomato,184,Shimoga,Shimoga,Tomato,Local,800,1600,1200,21 Oct 2025
+Tomato,185,Shimoga,Shimoga,Tomato,Local,800,1600,1200,23 Oct 2025
+Tomato,186,Tumkur,Tumkur,Tomato,Local,1600,2500,2200,10 Oct 2025
+Tomato,187,Tumkur,Tumkur,Tomato,Local,1800,2600,2200,14 Oct 2025
+Tomato,188,Tumkur,Tumkur,Tomato,Local,1850,2600,2150,16 Oct 2025
+Potato,1,Kolar,Bangarpet,Jalander,Local,1800,2200,2000,11 Oct 2025
+Potato,2,Kolar,Bangarpet,Local,Local,900,2000,1800,21 Oct 2025
+Potato,3,Kolar,Bangarpet,Local,Local,1000,1900,1500,03 Oct 2025
+Potato,4,Kolar,Bangarpet,Local,Local,1000,2000,1500,09 Oct 2025
+Potato,5,Kolar,Bangarpet,Local,Local,1000,2000,1500,11 Oct 2025
+Potato,6,Kolar,Bangarpet,Local,Local,1000,2000,1500,22 Oct 2025
+Potato,7,Kolar,Bangarpet,Local,Local,1000,2000,1700,18 Oct 2025
+Potato,8,Kolar,Bangarpet,Local,Local,1000,2000,1700,23 Oct 2025
+Potato,9,Kolar,Bangarpet,Local,Local,1000,2000,1800,10 Oct 2025
+Potato,10,Kolar,Bangarpet,Local,Local,1000,2000,1800,20 Oct 2025
+Potato,11,Kolar,Bangarpet,Local,Local,1000,2300,1700,17 Oct 2025
+Potato,12,Kolar,Bangarpet,Local,Local,1500,2000,1900,16 Oct 2025
+Potato,13,Kolar,Bangarpet,Local,Local,1500,2200,1800,07 Oct 2025
+Potato,14,Kolar,Bangarpet,Local,Local,1700,2300,2000,13 Oct 2025
+Potato,15,Kolar,Chickkaballapura,Local,Local,300,2200,1800,15 Oct 2025
+Potato,16,Kolar,Chickkaballapura,Local,Local,400,2000,1800,13 Oct 2025
+Potato,17,Kolar,Chickkaballapura,Local,Local,1800,2000,1900,10 Oct 2025
+Potato,18,Kolar,Chickkaballapura,Local,Local,1800,2000,1900,11 Oct 2025
+Potato,19,Kolar,Chickkaballapura,Local,Local,1800,2000,1900,12 Oct 2025
+Potato,20,Chikmagalur,Chikkamagalore,Other,Local,1816,2016,1916,16 Oct 2025
+Potato,21,Chikmagalur,Chikkamagalore,Other,Local,1947,2147,2047,06 Oct 2025
+Potato,22,Chikmagalur,Chikkamagalore,Other,Local,1960,2160,2060,13 Oct 2025
+Potato,23,Chikmagalur,Chikkamagalore,Other,Local,1984,2184,2084,23 Oct 2025
+Potato,24,Chikmagalur,Chikkamagalore,Other,Local,2000,2000,2000,08 Oct 2025
+Potato,25,Chikmagalur,Chikkamagalore,Other,Local,2020,2020,2020,15 Oct 2025
+Potato,26,Chikmagalur,Chikkamagalore,Other,Local,2084,2084,2084,09 Oct 2025
+Potato,27,Chikmagalur,Chikkamagalore,Other,Local,2084,2084,2084,10 Oct 2025
+Potato,28,Chikmagalur,Chikkamagalore,Other,Local,2084,2084,2084,18 Oct 2025
+Potato,29,Chikmagalur,Chikkamagalore,Other,Local,2223,2223,2223,14 Oct 2025
+Potato,30,Kolar,Chintamani,Local,Local,1300,1500,1400,10 Oct 2025
+Potato,31,Kolar,Gowribidanoor,Potato,Local,1500,2200,2000,15 Oct 2025
+Potato,32,Kolar,Gowribidanoor,Potato,Local,1500,2500,2000,03 Oct 2025
+Potato,33,Kolar,Gowribidanoor,Potato,Local,1500,2500,2000,04 Oct 2025
+Potato,34,Kolar,Gowribidanoor,Potato,Local,1500,2500,2000,16 Oct 2025
+Potato,35,Kolar,Gowribidanoor,Potato,Local,1500,2500,2000,22 Oct 2025
+Potato,36,Kolar,Gowribidanoor,Potato,Local,1500,2500,2000,23 Oct 2025
+Potato,37,Kolar,Gowribidanoor,Potato,Local,2000,2800,2500,18 Oct 2025
+Potato,38,Chamrajnagar,Gundlupet,Potato,Local,1500,1500,1500,03 Oct 2025
+Potato,39,Hassan,Hassan,Potato,Local,900,1700,1100,03 Oct 2025
+Potato,40,Hassan,Hassan,Potato,Local,1100,1400,1100,15 Oct 2025
+Potato,41,Hassan,Hassan,Potato,Local,1800,1900,1800,16 Oct 2025
+Potato,42,Bellary,Hospet,Potato,Local,1400,2000,1800,03 Oct 2025
+Potato,43,Bellary,Hospet,Potato,Local,1500,1600,1600,14 Oct 2025
+Potato,44,Bellary,Hospet,Potato,Local,1500,1600,1600,18 Oct 2025
+Potato,45,Bellary,Hospet,Potato,Local,1600,1600,1600,04 Oct 2025
+Potato,46,Bellary,Hospet,Potato,Local,1600,1600,1600,12 Oct 2025
+Potato,47,Bellary,Hospet,Potato,Local,1600,1800,1800,08 Oct 2025
+Potato,48,Bellary,Hospet,Potato,Local,1600,2000,1800,15 Oct 2025
+Potato,49,Bellary,Hospet,Potato,Local,1600,2000,2000,13 Oct 2025
+Potato,50,Bellary,Hospet,Potato,Local,1600,2200,1800,05 Oct 2025
+Potato,51,Bellary,Hospet,Potato,Local,1600,2200,1800,19 Oct 2025
+Potato,52,Bellary,Hospet,Potato,Local,1800,1800,1800,17 Oct 2025
+Potato,53,Dharwad,Hubli (Amaragol),Potato,Local,900,2000,1400,04 Oct 2025
+Potato,54,Dharwad,Hubli (Amaragol),Potato,Local,1000,1700,1400,11 Oct 2025
+Potato,55,Dharwad,Hubli (Amaragol),Potato,Local,1000,1750,1300,17 Oct 2025
+Potato,56,Dharwad,Hubli (Amaragol),Potato,Local,1200,1700,1300,14 Oct 2025
+Potato,57,Dharwad,Hubli (Amaragol),Potato,Local,1300,1600,1400,03 Oct 2025
+Potato,58,Dharwad,Hubli (Amaragol),Potato,Local,1300,1700,1500,15 Oct 2025
+Potato,59,Dharwad,Hubli (Amaragol),Potato,Local,1400,1700,1500,09 Oct 2025
+Potato,60,Dharwad,Hubli (Amaragol),Potato,Local,1400,1700,1550,16 Oct 2025
+Potato,61,Dharwad,Hubli (Amaragol),Potato,Local,1400,1900,1500,23 Oct 2025
+Potato,62,Dharwad,Hubli (Amaragol),Potato,Local,1500,1800,1700,13 Oct 2025
+Potato,63,Dharwad,Hubli (Amaragol),Potato,Local,1500,1800,1700,18 Oct 2025
+Potato,64,Dharwad,Hubli (Amaragol),Potato,Local,1500,2000,1750,08 Oct 2025
+Potato,65,Kalburgi,Kalburgi,Potato,Local,1000,1200,1100,06 Oct 2025
+Potato,66,Kalburgi,Kalburgi,Potato,Local,1000,1200,1100,14 Oct 2025
+Potato,67,Kalburgi,Kalburgi,Potato,Local,1000,1500,1250,03 Oct 2025
+Potato,68,Kalburgi,Kalburgi,Potato,Local,1000,1500,1250,17 Oct 2025
+Potato,69,Kalburgi,Kalburgi,Potato,Local,1000,1600,1300,08 Oct 2025
+Potato,70,Kalburgi,Kalburgi,Potato,Local,1000,1600,1300,09 Oct 2025
+Potato,71,Kalburgi,Kalburgi,Potato,Local,1000,1600,1300,11 Oct 2025
+Potato,72,Kalburgi,Kalburgi,Potato,Local,1000,1600,1300,15 Oct 2025
+Potato,73,Kalburgi,Kalburgi,Potato,Local,1000,1700,1350,23 Oct 2025
+Potato,74,Kolar,Kolar,Local,Local,1500,2000,1800,21 Oct 2025
+Potato,75,Kolar,Kolar,Local,Local,2000,2500,2300,16 Oct 2025
+Potato,76,Kolar,Kolar,Local,Local,2000,3000,2400,14 Oct 2025
+Potato,77,Kolar,Kolar,Local,Local,2000,3000,2500,15 Oct 2025
+Potato,78,Kolar,Malur,Potato,Local,1800,2200,2000,08 Oct 2025
+Potato,79,Mysore,Mysore (Bandipalya),Potato,Ref grade-1,1200,2000,1500,03 Oct 2025
+Potato,80,Bangalore,Ramanagara,Potato,Local,2000,2600,2400,08 Oct 2025
+Potato,81,Shimoga,Shimoga,Local,Local,2000,3000,2500,03 Oct 2025
+Potato,82,Shimoga,Shimoga,Local,Local,2000,3000,2500,06 Oct 2025
+Potato,83,Shimoga,Shimoga,Local,Local,2000,3000,2500,08 Oct 2025
+Potato,84,Shimoga,Shimoga,Local,Local,2000,3000,2500,09 Oct 2025
+Potato,85,Shimoga,Shimoga,Local,Local,2000,3000,2500,10 Oct 2025
+Potato,86,Shimoga,Shimoga,Local,Local,2000,3000,2500,13 Oct 2025
+Potato,87,Shimoga,Shimoga,Local,Local,2000,3000,2500,14 Oct 2025
+Potato,88,Shimoga,Shimoga,Local,Local,2000,3000,2500,15 Oct 2025
+Potato,89,Shimoga,Shimoga,Local,Local,2000,3000,2500,16 Oct 2025
+Potato,90,Shimoga,Shimoga,Local,Local,2000,3000,2500,17 Oct 2025
+Potato,91,Shimoga,Shimoga,Local,Local,2000,3000,2500,21 Oct 2025
+Potato,92,Shimoga,Shimoga,Local,Local,2000,3000,2500,23 Oct 2025
+Potato,93,Udupi,Udupi,Potato,Local,1400,1500,1500,06 Oct 2025
+Potato,94,Udupi,Udupi,Potato,Local,1700,1800,1800,08 Oct 2025
+Potato,95,Udupi,Udupi,Potato,Local,1700,1800,1800,13 Oct 2025
+Maize,1,Belgaum,Bailahongal,Hybrid/Local,Local,0,0,1612,23 Oct 2025
+Maize,2,Belgaum,Bailahongal,Hybrid/Local,Local,0,0,1942,16 Oct 2025
+Maize,3,Belgaum,Bailahongal,Hybrid/Local,Local,0,0,1960,18 Oct 2025
+Maize,4,Shimoga,Bhadravathi,Local,Local,0,0,2225,23 Oct 2025
+Maize,5,Chikmagalur,Chikkamagalore,Local,Local,0,0,2150,13 Oct 2025
+Maize,6,Chitradurga,Chitradurga,Local,Local,1200,2189,2023,06 Oct 2025
+Maize,7,Chitradurga,Chitradurga,Local,Local,1201,2159,1919,10 Oct 2025
+Maize,8,Chitradurga,Chitradurga,Local,Local,1271,2150,1997,08 Oct 2025
+Maize,9,Chitradurga,Chitradurga,Local,Local,1509,2139,1968,13 Oct 2025
+Maize,10,Chitradurga,Chitradurga,Local,Local,2049,2219,2166,03 Oct 2025
+Maize,11,Chitradurga,Chitradurga,Local,Local,3430,3889,3776,15 Oct 2025
+Maize,12,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,1800,2050,1900,17 Oct 2025
+Maize,13,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,1820,2000,1900,18 Oct 2025
+Maize,14,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,1850,1950,1900,23 Oct 2025
+Maize,15,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,1850,2000,1900,21 Oct 2025
+Maize,16,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,1865,2050,1950,16 Oct 2025
+Maize,17,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,1875,2150,2000,15 Oct 2025
+Maize,18,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,2000,2075,2037,10 Oct 2025
+Maize,19,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,2000,2100,2030,14 Oct 2025
+Maize,20,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,2000,2150,2050,13 Oct 2025
+Maize,21,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,2000,2150,2100,09 Oct 2025
+Maize,22,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,2075,2100,2100,08 Oct 2025
+Maize,23,Chitradurga,Holalkere,Yellow,Local,0,0,2000,17 Oct 2025
+Maize,24,Chitradurga,Holalkere,Yellow,Local,0,0,2000,18 Oct 2025
+Maize,25,Chitradurga,Holalkere,Yellow,Local,0,0,2060,21 Oct 2025
+Maize,26,Davangere,Jagalur,Hybrid/Local,Local,0,0,1900,14 Oct 2025
+Maize,27,Mandya,K.R. Pet,Local,Local,0,0,2000,12 Oct 2025
+Maize,28,Mandya,K.R. Pet,Local,Local,0,0,2000,22 Oct 2025
+Maize,29,Mandya,K.R. Pet,Local,Local,0,0,2280,08 Oct 2025
+Maize,30,Mandya,K.R. Pet,Local,Local,1800,1800,1800,14 Oct 2025
+Maize,31,Mysore,K.R.Nagar,Local,Local,0,0,2050,16 Oct 2025
+Maize,32,Mysore,K.R.Nagar,Local,Local,0,0,2075,17 Oct 2025
+Maize,33,Mysore,K.R.Nagar,Local,Local,0,0,2127,13 Oct 2025
+Maize,34,Dharwad,Kalagategi,Local,Local,0,0,2053,13 Oct 2025
+Maize,35,Dharwad,Kalagategi,Local,Local,1710,2160,1904,21 Oct 2025
+Maize,36,Dharwad,Kalagategi,Local,Local,1800,1800,1800,23 Oct 2025
+Maize,37,Dharwad,Kalagategi,Local,Local,1900,1950,1918,18 Oct 2025
+Maize,38,Dharwad,Kalagategi,Local,Local,1900,2050,1981,16 Oct 2025
+Maize,39,Dharwad,Kalagategi,Local,Local,1900,2100,1970,17 Oct 2025
+Maize,40,Dharwad,Kalagategi,Local,Local,1950,2050,1976,15 Oct 2025
+Maize,41,Dharwad,Kalagategi,Local,Local,2000,2050,2024,14 Oct 2025
+Maize,42,Dharwad,Kalagategi,Local,Local,2100,2100,2100,08 Oct 2025
+Maize,43,Dharwad,Kalagategi,Local,Local,2100,2100,2100,09 Oct 2025
+Maize,44,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2000,16 Oct 2025
+Maize,45,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2000,17 Oct 2025
+Maize,46,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2000,18 Oct 2025
+Maize,47,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2000,21 Oct 2025
+Maize,48,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2000,23 Oct 2025
+Maize,49,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2400,06 Oct 2025
+Maize,50,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2400,13 Oct 2025
+Maize,51,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2400,14 Oct 2025
+Maize,52,Karwar(Uttar Kannad),Mundgod,Hybrid/Local,Local,0,0,2000,16 Oct 2025
+Maize,53,Karwar(Uttar Kannad),Mundgod,Hybrid/Local,Local,0,0,2100,10 Oct 2025
+Maize,54,Karwar(Uttar Kannad),Mundgod,Hybrid/Local,Local,0,0,2150,15 Oct 2025
+Maize,55,Karwar(Uttar Kannad),Mundgod,Hybrid/Local,Local,0,0,2200,14 Oct 2025
+Maize,56,Mysore,Piriya Pattana,Hybrid/Local,Local,1500,2200,2000,06 Oct 2025
+Maize,57,Mysore,Piriya Pattana,Hybrid/Local,Local,1800,2100,1800,12 Oct 2025
+Maize,58,Tumkur,Sira,Local,Local,0,0,2085,10 Oct 2025
+Maize,59,Tumkur,Sira,Local,Local,0,0,2148,15 Oct 2025
+Maize,60,Tumkur,Sira,Local,Local,0,0,2570,14 Oct 2025
+Maize,61,Shimoga,Sorabha,Local,Local,0,0,2040,18 Oct 2025
+Maize,62,Shimoga,Sorabha,Local,Local,0,0,2050,16 Oct 2025
+Maize,63,Shimoga,Sorabha,Local,Local,0,0,2090,21 Oct 2025
+Maize,64,Shimoga,Sorabha,Local,Local,0,0,2150,06 Oct 2025
+Maize,65,Shimoga,Sorabha,Local,Local,0,0,2200,04 Oct 2025
+Coconut,1,Kolar,Bangarpet,Grade-I,Local,15000,30000,24000,08 Oct 2025
+Coconut,2,Mangalore(Dakshin Kannad),Belthangdi,Grade-I,Local,4700,7200,6476,14 Oct 2025
+Coconut,3,Shimoga,Bhadravathi,Grade-III,Local,16000,16000,16000,14 Oct 2025
+Coconut,4,Shimoga,Bhadravathi,Grade-III,Local,26000,26000,26000,15 Oct 2025
+Coconut,5,Shimoga,Bhadravathi,Grade-III,Local,27700,27700,27700,18 Oct 2025
+Coconut,6,Shimoga,Bhadravathi,Grade-III,Local,28000,28000,28000,16 Oct 2025
+Coconut,7,Shimoga,Bhadravathi,Grade-III,Local,34950,34950,34950,17 Oct 2025
+Coconut,8,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,11000,16000,13500,23 Oct 2025
+Coconut,9,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,14000,29000,20500,08 Oct 2025
+Coconut,10,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,14000,29000,22360,10 Oct 2025
+Coconut,11,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,14000,35000,26800,13 Oct 2025
+Coconut,12,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,15000,20000,18250,18 Oct 2025
+Coconut,13,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,15000,21000,17000,21 Oct 2025
+Coconut,14,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,15000,21000,17500,09 Oct 2025
+Coconut,15,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,15000,29000,22000,06 Oct 2025
+Coconut,16,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,15000,29000,22800,16 Oct 2025
+Coconut,17,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,17500,22000,20000,03 Oct 2025
+Coconut,18,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,19000,29000,24600,17 Oct 2025
+Coconut,19,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,19000,29000,24700,14 Oct 2025
+Coconut,20,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,29000,29000,29000,04 Oct 2025
+Coconut,21,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,29000,29000,29000,15 Oct 2025
+Coconut,22,Hassan,Channarayapatna,Grade-III,Local,25000,25000,25000,15 Oct 2025
+Coconut,23,Kolar,Chickkaballapura,Grade-I,Local,12000,20000,18000,15 Oct 2025
+Coconut,24,Kolar,Chickkaballapura,Grade-I,Local,14000,20000,17000,11 Oct 2025
+Coconut,25,Chamrajnagar,Gundlupet,Grade-I,Local,20000,20000,20000,06 Oct 2025
+Coconut,26,Chamrajnagar,Gundlupet,Grade-I,Local,20000,31000,20000,17 Oct 2025
+Coconut,27,Chamrajnagar,Gundlupet,Grade-I,Local,27000,27000,27000,03 Oct 2025
+Coconut,28,Chamrajnagar,Gundlupet,Grade-I,Local,30000,35000,30000,10 Oct 2025
+Coconut,29,Hassan,Hassan,Other,Local,35,38,36,16 Oct 2025
+Coconut,30,Chitradurga,Hiriyur,Grade-I,Local,16666,16666,16666,08 Oct 2025
+Coconut,31,Chitradurga,Hiriyur,Grade-III,Local,25000,25000,25000,06 Oct 2025
+Coconut,32,Chitradurga,Holalkere,Grade-I,Local,31150,41470,35348,13 Oct 2025
+Coconut,33,Chitradurga,Holalkere,Grade-I,Local,31880,31880,31880,21 Oct 2025
+Coconut,34,Chitradurga,Holalkere,Grade-I,Local,32860,32860,32860,08 Oct 2025
+Coconut,35,Mandya,K.R. Pet,Grade-I,Local,24500,25000,24500,09 Oct 2025
+Coconut,36,Mandya,K.R. Pet,Grade-I,Local,24500,25000,24500,16 Oct 2025
+Coconut,37,Mandya,K.R. Pet,Grade-I,Local,29000,29000,29000,14 Oct 2025
+Coconut,38,Mandya,K.R. Pet,Grade-I,Local,29000,31000,31000,20 Oct 2025
+Coconut,39,Mandya,K.R. Pet,Grade-I,Local,29000,32000,30000,06 Oct 2025
+Coconut,40,Mandya,K.R. Pet,Grade-I,Local,29000,35000,30000,03 Oct 2025
+Coconut,41,Mandya,K.R. Pet,Grade-I,Local,31000,35000,31000,13 Oct 2025
+Coconut,42,Chikmagalur,Koppa,Grade-I,Local,4800,5800,5500,03 Oct 2025
+Coconut,43,Chikmagalur,Koppa,Grade-I,Local,4800,5800,5500,06 Oct 2025
+Coconut,44,Chikmagalur,Koppa,Grade-I,Local,4800,5800,5500,14 Oct 2025
+Coconut,45,Chikmagalur,Koppa,Grade-I,Local,5800,5800,5800,08 Oct 2025
+Coconut,46,Chikmagalur,Koppa,Grade-I,Local,5800,5800,5800,12 Oct 2025
+Coconut,47,Chikmagalur,Koppa,Grade-I,Local,5800,5800,5800,13 Oct 2025
+Coconut,48,Chikmagalur,Koppa,Grade-I,Local,5800,5800,5800,15 Oct 2025
+Coconut,49,Karwar(Uttar Kannad),Kumta,Grade-I,Local,22619,47570,36943,16 Oct 2025
+Coconut,50,Karwar(Uttar Kannad),Kumta,Grade-I,Local,33091,50070,42253,09 Oct 2025
+Coconut,51,Karwar(Uttar Kannad),Kumta,Grade-I,Local,34507,34507,34507,06 Oct 2025
+Coconut,52,Karwar(Uttar Kannad),Kumta,Grade-I,Local,35211,39436,38150,22 Oct 2025
+Coconut,53,Karwar(Uttar Kannad),Kumta,Grade-I,Local,45126,48514,47689,23 Oct 2025
+Coconut,54,Mandya,Maddur,Grade-I,Local,24500,24500,24500,20 Oct 2025
+Coconut,55,Mandya,Maddur,Grade-I,Local,24500,35500,29000,10 Oct 2025
+Coconut,56,Mandya,Maddur,Grade-I,Local,24500,35500,35500,11 Oct 2025
+Coconut,57,Mandya,Maddur,Grade-I,Local,25000,29000,29000,08 Oct 2025
+Coconut,58,Mandya,Maddur,Grade-I,Local,25000,34500,34500,12 Oct 2025
+Coconut,59,Mandya,Malavalli,Coconut,Local,19,20,19,03 Oct 2025
+Coconut,60,Mandya,Malavalli,Coconut,Local,19,20,19,07 Oct 2025
+Coconut,61,Mandya,Malavalli,Coconut,Local,19,21,19,09 Oct 2025
+Coconut,62,Mandya,Malavalli,Coconut,Local,19,21,19,13 Oct 2025
+Coconut,63,Mangalore(Dakshin Kannad),Mangalore,Medium,Local,28000,35000,30000,06 Oct 2025
+Coconut,64,Mangalore(Dakshin Kannad),Mangalore,Medium,Local,28000,35000,32000,16 Oct 2025
+Coconut,65,Mysore,Mysore (Bandipalya),Grade-I,Ref grade-1,33000,33000,33000,07 Oct 2025
+Coconut,66,Bangalore,Ramanagara,Grade-I,Local,18400,35000,25000,07 Oct 2025
+Coconut,67,Bangalore,Ramanagara,Grade-I,Local,23000,25000,24000,15 Oct 2025
+Coconut,68,Tumkur,Sira,Grade-III,Local,25000,31000,29000,20 Oct 2025
+Coconut,69,Tumkur,Sira,Grade-III,Local,25000,34000,29890,10 Oct 2025
+Coconut,70,Tumkur,Sira,Grade-III,Local,30000,33600,32680,15 Oct 2025
+Coconut,71,Karwar(Uttar Kannad),Sirsi,Grade-I,Local,5000,7767,7500,15 Oct 2025
+Coconut,72,Karwar(Uttar Kannad),Sirsi,Grade-I,Local,5900,7611,6535,04 Oct 2025
+Coconut,73,Karwar(Uttar Kannad),Sirsi,Grade-I,Local,6000,7711,7000,11 Oct 2025
+Coconut,74,Karwar(Uttar Kannad),Sirsi,Grade-I,Local,6010,7681,6829,08 Oct 2025
+Coconut,75,Madikeri(Kodagu),Somvarpet,Grade-III,Ref grade-1,2000,2000,2000,15 Oct 2025
+Coconut,76,Mandya,Srirangapattana,Grade-I,Local,30000,30000,30000,06 Oct 2025
+Coconut,77,Mandya,Srirangapattana,Grade-I,Local,39000,39000,39000,12 Oct 2025
+Coconut,78,Mangalore(Dakshin Kannad),Sulya,Grade-I,Local,2300,3600,3000,16 Oct 2025
+Coconut,79,Mangalore(Dakshin Kannad),Sulya,Grade-I,Local,2500,3500,3000,03 Oct 2025
+Coconut,80,Mangalore(Dakshin Kannad),Sulya,Grade-I,Local,2500,3500,3000,04 Oct 2025
+Coconut,81,Mangalore(Dakshin Kannad),Sulya,Grade-I,Local,2500,3700,3000,23 Oct 2025
+Coconut,82,Tumkur,Tumkur,Coconut,Local,20000,40000,32000,10 Oct 2025
+Coconut,83,Tumkur,Tumkur,Coconut,Local,22000,40000,32000,16 Oct 2025
+Coconut,84,Tumkur,Tumkur,Coconut,Local,22000,42000,30000,15 Oct 2025
+Coconut,85,Tumkur,Tumkur,Coconut,Local,24000,40000,32000,09 Oct 2025
+Coconut,86,Tumkur,Tumkur,Coconut,Local,24000,42000,32000,08 Oct 2025
+Wheat,1,Shimoga,Bhadravathi,Local,Local,3150,3150,3150,08 Oct 2025
+Wheat,2,Shimoga,Bhadravathi,Local,Local,3700,3700,3700,14 Oct 2025
+Wheat,3,Shimoga,Bhadravathi,Local,Local,4000,4000,4000,16 Oct 2025
+Wheat,4,Bellary,Hospet,Other,Local,3200,3500,3200,05 Oct 2025
+Wheat,5,Bellary,Hospet,Other,Local,3500,3525,3500,17 Oct 2025
+Wheat,6,Dharwad,Hubli (Amaragol),Jawari,Local,2310,3229,3091,04 Oct 2025
+Wheat,7,Dharwad,Hubli (Amaragol),Jawari,Local,2310,3552,3283,15 Oct 2025
+Wheat,8,Dharwad,Hubli (Amaragol),Jawari,Local,2329,4002,3028,16 Oct 2025
+Wheat,9,Dharwad,Hubli (Amaragol),Jawari,Local,2410,2410,2410,14 Oct 2025
+Wheat,10,Dharwad,Hubli (Amaragol),Jawari,Local,2429,4121,2602,13 Oct 2025
+Wheat,11,Dharwad,Hubli (Amaragol),Jawari,Local,2509,4235,3021,18 Oct 2025
+Wheat,12,Dharwad,Hubli (Amaragol),Jawari,Local,2611,3052,2926,08 Oct 2025
+Wheat,13,Dharwad,Hubli (Amaragol),Jawari,Local,3011,3011,3011,09 Oct 2025
+Wheat,14,Dharwad,Kalagategi,Local,Local,2850,2850,2850,08 Oct 2025
+Wheat,15,Chikmagalur,Koppa,Other,Local,1700,1900,1800,13 Oct 2025
+Wheat,16,Chikmagalur,Koppa,Other,Local,1700,1900,1800,14 Oct 2025
+Wheat,17,Mysore,Mysore (Bandipalya),Local,Ref grade-1,3303,3660,3456,08 Oct 2025
+Wheat,18,Mysore,Mysore (Bandipalya),Local,Ref grade-1,3330,3330,3330,10 Oct 2025
+Wheat,19,Mysore,Mysore (Bandipalya),Local,Ref grade-1,3330,3455,3335,15 Oct 2025
+Wheat,20,Shimoga,Shimoga,Super Fine,Local,3400,4200,3800,03 Oct 2025
+Wheat,21,Shimoga,Shimoga,Super Fine,Local,3400,4200,3800,09 Oct 2025
+Wheat,22,Shimoga,Shimoga,Super Fine,Local,3400,4400,3900,08 Oct 2025
+Wheat,23,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,04 Oct 2025
+Wheat,24,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,06 Oct 2025
+Wheat,25,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,10 Oct 2025
+Wheat,26,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,13 Oct 2025
+Wheat,27,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,14 Oct 2025
+Wheat,28,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,15 Oct 2025
+Wheat,29,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,17 Oct 2025
+Wheat,30,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,18 Oct 2025
+Wheat,31,Shimoga,Shimoga,Super Fine,Local,3500,4200,3850,21 Oct 2025
+Rice,1,Kolar,Bangarpet,Broken Rice,Local,1500,2500,2000,03 Oct 2025
+Rice,2,Kolar,Bangarpet,Broken Rice,Local,1700,2500,2000,21 Oct 2025
+Rice,3,Kolar,Bangarpet,Broken Rice,Local,1800,2400,2000,10 Oct 2025
+Rice,4,Kolar,Bangarpet,Broken Rice,Local,2000,2700,2500,18 Oct 2025
+Rice,5,Kolar,Bangarpet,IR 20,Local,2000,2500,2300,03 Oct 2025
+Rice,6,Kolar,Bangarpet,IR 20,Local,2800,4000,3000,10 Oct 2025
+Rice,7,Kolar,Bangarpet,IR 20,Local,3000,3500,3000,18 Oct 2025
+Rice,8,Kolar,Bangarpet,IR 20,Local,4000,4500,4200,21 Oct 2025
+Rice,9,Shimoga,Bhadravathi,Broken Rice,Local,2400,2400,2400,14 Oct 2025
+Rice,10,Shimoga,Bhadravathi,Broken Rice,Local,2400,2400,2400,16 Oct 2025
+Rice,11,Shimoga,Bhadravathi,Broken Rice,Local,2400,2400,2400,17 Oct 2025
+Rice,12,Shimoga,Bhadravathi,Medium,Local,2400,2400,2400,23 Oct 2025
+Rice,13,Shimoga,Bhadravathi,Medium,Local,2400,4200,2745,17 Oct 2025
+Rice,14,Shimoga,Bhadravathi,Medium,Local,2450,2450,2450,16 Oct 2025
+Rice,15,Shimoga,Bhadravathi,Medium,Local,2500,2500,2500,13 Oct 2025
+Rice,16,Shimoga,Bhadravathi,Medium,Local,2500,2500,2500,15 Oct 2025
+Rice,17,Shimoga,Bhadravathi,Medium,Local,2600,2600,2600,14 Oct 2025
+Rice,18,Chamrajnagar,Chamaraj Nagar,Other,Local,2250,2250,2250,23 Oct 2025
+Rice,19,Kolar,Chickkaballapura,Broken Rice,Local,3800,5900,5072,18 Oct 2025
+Rice,20,Chikmagalur,Chikkamagalore,Other,Local,2800,2800,2800,13 Oct 2025
+Rice,21,Koppal,Gangavathi,Broken Rice,Local,2200,2300,2210,13 Oct 2025
+Rice,22,Koppal,Gangavathi,Broken Rice,Local,2250,2250,2250,14 Oct 2025
+Rice,23,Koppal,Gangavathi,Broken Rice,Local,2300,2300,2300,04 Oct 2025
+Rice,24,Koppal,Gangavathi,Broken Rice,Local,2300,2300,2300,15 Oct 2025
+Rice,25,Koppal,Gangavathi,Broken Rice,Local,2300,2300,2300,16 Oct 2025
+Rice,26,Koppal,Gangavathi,Broken Rice,Local,2300,2480,2300,08 Oct 2025
+Rice,27,Koppal,Gangavathi,Other,Local,2300,2600,2450,15 Oct 2025
+Rice,28,Koppal,Gangavathi,Other,Local,2300,3595,2800,03 Oct 2025
+Rice,29,Koppal,Gangavathi,Other,Local,2350,2800,2550,21 Oct 2025
+Rice,30,Koppal,Gangavathi,Other,Local,2350,3420,2790,17 Oct 2025
+Rice,31,Koppal,Gangavathi,Other,Local,2400,2754,2725,16 Oct 2025
+Rice,32,Koppal,Gangavathi,Other,Local,2400,2790,2755,18 Oct 2025
+Rice,33,Koppal,Gangavathi,Other,Local,2400,2857,2780,14 Oct 2025
+Rice,34,Koppal,Gangavathi,Other,Local,2400,2870,2600,09 Oct 2025
+Rice,35,Koppal,Gangavathi,Other,Local,2400,3700,2850,08 Oct 2025
+Rice,36,Koppal,Gangavathi,Other,Local,2400,4200,2850,13 Oct 2025
+Rice,37,Koppal,Gangavathi,Other,Local,2580,2876,2810,06 Oct 2025
+Rice,38,Hassan,Hassan,Other,Local,2470,2470,2470,16 Oct 2025
+Rice,39,Bellary,Hospet,Medium,Local,3600,4000,4000,08 Oct 2025
+Rice,40,Bellary,Hospet,Medium,Local,4000,4000,4000,14 Oct 2025
+Rice,41,Mandya,K.R. Pet,Coarse,Local,2400,2400,2400,09 Oct 2025
+Rice,42,Mandya,K.R. Pet,Coarse,Local,2500,2500,2500,14 Oct 2025
+Rice,43,Dharwad,Kalagategi,CR 1009 (Coarse) Boiled,Local,2900,2900,2900,23 Oct 2025
+Rice,44,Kalburgi,Kalburgi,Broken Rice,Local,2800,4600,3900,09 Oct 2025
+Rice,45,Kalburgi,Kalburgi,Broken Rice,Local,2900,4100,3600,06 Oct 2025
+Rice,46,Kalburgi,Kalburgi,Broken Rice,Local,2900,4400,3500,23 Oct 2025
+Rice,47,Kalburgi,Kalburgi,Broken Rice,Local,2900,4400,3600,14 Oct 2025
+Rice,48,Kalburgi,Kalburgi,Broken Rice,Local,2900,4450,3650,16 Oct 2025
+Rice,49,Kalburgi,Kalburgi,Broken Rice,Local,2950,4150,3600,03 Oct 2025
+Rice,50,Kalburgi,Kalburgi,Broken Rice,Local,3000,4000,3700,11 Oct 2025
+Rice,51,Kalburgi,Kalburgi,Broken Rice,Local,3000,4200,3700,08 Oct 2025
+Rice,52,Kalburgi,Kalburgi,Broken Rice,Local,3000,4500,3500,15 Oct 2025
+Rice,53,Kalburgi,Kalburgi,Broken Rice,Local,3000,4500,3600,17 Oct 2025
+Rice,54,Kalburgi,Kalburgi,Coarse,Local,3700,4700,4300,23 Oct 2025
+Rice,55,Kalburgi,Kalburgi,Coarse,Local,3800,4800,4400,17 Oct 2025
+Rice,56,Kalburgi,Kalburgi,Coarse,Local,3900,5000,4700,16 Oct 2025
+Rice,57,Kalburgi,Kalburgi,Coarse,Local,4000,5000,4350,03 Oct 2025
+Rice,58,Kalburgi,Kalburgi,Coarse,Local,4000,5000,4600,11 Oct 2025
+Rice,59,Kalburgi,Kalburgi,Coarse,Local,4000,5050,4800,15 Oct 2025
+Rice,60,Kalburgi,Kalburgi,Coarse,Local,4000,5100,4600,08 Oct 2025
+Rice,61,Kalburgi,Kalburgi,Coarse,Local,4000,5150,4900,14 Oct 2025
+Rice,62,Kalburgi,Kalburgi,Coarse,Local,4000,5300,4800,09 Oct 2025
+Rice,63,Kalburgi,Kalburgi,Coarse,Local,4100,5150,4700,06 Oct 2025
+Rice,64,Kalburgi,Kalburgi,Fine,Local,4350,5850,5100,03 Oct 2025
+Rice,65,Kalburgi,Kalburgi,Fine,Local,4350,5900,5300,11 Oct 2025
+Rice,66,Kalburgi,Kalburgi,Fine,Local,4400,5900,5200,06 Oct 2025
+Rice,67,Kalburgi,Kalburgi,Fine,Local,4400,6200,5500,09 Oct 2025
+Rice,68,Kalburgi,Kalburgi,Fine,Local,4500,6000,5350,08 Oct 2025
+Rice,69,Kalburgi,Kalburgi,Fine,Local,4500,6250,5550,15 Oct 2025
+Rice,70,Kalburgi,Kalburgi,Fine,Local,4600,6200,5500,14 Oct 2025
+Rice,71,Kalburgi,Kalburgi,Fine,Local,4600,6200,5500,17 Oct 2025
+Rice,72,Kalburgi,Kalburgi,Fine,Local,4650,6300,5600,16 Oct 2025
+Rice,73,Kalburgi,Kalburgi,Fine,Local,4700,6300,5600,23 Oct 2025
+Rice,74,Chikmagalur,Koppa,Jaya,Local,2800,2800,2800,03 Oct 2025
+Rice,75,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,04 Oct 2025
+Rice,76,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,06 Oct 2025
+Rice,77,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,09 Oct 2025
+Rice,78,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,13 Oct 2025
+Rice,79,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,14 Oct 2025
+Rice,80,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,15 Oct 2025
+Rice,81,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,21 Oct 2025
+Rice,82,Karwar(Uttar Kannad),Kumta,Dappa,Local,2300,2300,2300,22 Oct 2025
+Rice,83,Mandya,Maddur,Broken Rice,Local,1600,1600,1600,20 Oct 2025
+Rice,84,Mandya,Maddur,Other,Local,2600,2600,2600,20 Oct 2025
+Rice,85,Kolar,Malur,Sona,Local,3500,5000,3900,15 Oct 2025
+Rice,86,Karwar(Uttar Kannad),Mundgod,Kachha Basmati,FAQ,2600,2810,2600,03 Oct 2025
+Rice,87,Karwar(Uttar Kannad),Mundgod,Kachha Basmati,Local,2630,2800,2680,16 Oct 2025
+Rice,88,Mysore,Mysore (Bandipalya),Basumathi,Ref grade-1,7992,7992,7992,14 Oct 2025
+Rice,89,Mysore,Mysore (Bandipalya),Basumathi,Ref grade-1,8052,8052,8052,08 Oct 2025
+Rice,90,Mysore,Mysore (Bandipalya),Basumathi,Ref grade-1,9262,14243,9816,03 Oct 2025
+Rice,91,Mysore,Mysore (Bandipalya),Basumathi,Ref grade-1,9469,9469,9469,16 Oct 2025
+Rice,92,Mysore,Mysore (Bandipalya),Broken Rice,Ref grade-1,2200,2200,2200,03 Oct 2025
+Rice,93,Mysore,Mysore (Bandipalya),Broken Rice,Ref grade-1,2300,2300,2300,07 Oct 2025
+Rice,94,Mysore,Mysore (Bandipalya),Broken Rice,Ref grade-1,2300,2300,2300,11 Oct 2025
+Rice,95,Mysore,Mysore (Bandipalya),Broken Rice,Ref grade-1,2300,2400,2400,16 Oct 2025
+Rice,96,Mysore,Mysore (Bandipalya),Fine,Ref grade-1,5475,7065,6951,14 Oct 2025
+Rice,97,Mysore,Mysore (Bandipalya),Fine,Ref grade-1,5475,8128,7835,08 Oct 2025
+Rice,98,Mysore,Mysore (Bandipalya),Fine,Ref grade-1,6790,7115,7065,15 Oct 2025
+Rice,99,Mysore,Mysore (Bandipalya),Fine,Ref grade-1,7115,7115,7115,16 Oct 2025
+Rice,100,Mysore,Mysore (Bandipalya),Fine,Ref grade-1,7885,7885,7885,03 Oct 2025
+Rice,101,Mysore,Mysore (Bandipalya),Medium,Ref grade-1,3007,4046,4046,15 Oct 2025
+Rice,102,Mysore,Mysore (Bandipalya),Medium,Ref grade-1,3103,4000,3880,03 Oct 2025
+Rice,103,Mysore,Mysore (Bandipalya),Medium,Ref grade-1,4000,4000,4000,14 Oct 2025
+Rice,104,Mysore,Mysore (Bandipalya),Medium,Ref grade-1,4000,4000,4000,16 Oct 2025
+Rice,105,Mandya,Pandavapura,Other,Local,2600,2600,2600,03 Oct 2025
+Rice,106,Bangalore,Ramanagara,Fine,Local,6000,6800,6400,20 Oct 2025
+Rice,107,Shimoga,Shimoga(Theertahalli),Coarse,Ref grade-1,4000,4000,4000,03 Oct 2025
+Rice,108,Madikeri(Kodagu),Somvarpet,Sarbati Raw,Ref grade-1,2700,2700,2700,14 Oct 2025
+Rice,109,Madikeri(Kodagu),Somvarpet,Sarbati Raw,Ref grade-1,2700,2700,2700,23 Oct 2025
+Rice,110,Madikeri(Kodagu),Somvarpet,Sarbati Raw,Ref grade-1,2700,4700,2700,08 Oct 2025
+Rice,111,Mandya,Srirangapattana,Broken Rice,Local,3150,3150,3150,15 Oct 2025
+Rice,112,Mandya,Srirangapattana,Medium,Local,2200,2200,2200,15 Oct 2025
+Rice,113,Tumkur,Tumkur,Other,Local,2900,4600,3600,08 Oct 2025
+Rice,114,Tumkur,Tumkur,Other,Local,3600,5600,4200,09 Oct 2025
+Rice,115,Tumkur,Tumkur,Other,Local,3600,5600,4200,14 Oct 2025
+Rice,116,Tumkur,Tumkur,Other,Local,3600,5900,4600,06 Oct 2025
+Rice,117,Tumkur,Tumkur,Other,Local,3800,5600,4200,13 Oct 2025
+Rice,118,Tumkur,Tumkur,Other,Local,3800,5900,4800,10 Oct 2025
+Groundnut,1,Chitradurga,Chitradurga,Natte,Local,2000,7370,5158,15 Oct 2025
+Groundnut,2,Chitradurga,Chitradurga,Natte,Local,2009,7211,4968,06 Oct 2025
+Groundnut,3,Chitradurga,Chitradurga,Natte,Local,2489,7329,5185,08 Oct 2025
+Groundnut,4,Chitradurga,Chitradurga,Natte,Local,2519,7151,5332,10 Oct 2025
+Groundnut,5,Chitradurga,Chitradurga,Natte,Local,2689,7355,5391,13 Oct 2025
+Groundnut,6,Tumkur,Sira,Other,Local,0,0,5214,15 Oct 2025
+Groundnut,7,Tumkur,Sira,Other,Local,0,0,5309,20 Oct 2025
+Groundnut,8,Tumkur,Sira,Other,Local,0,0,5389,14 Oct 2025
+Groundnut,9,Tumkur,Sira,Other,Local,0,0,6110,13 Oct 2025
+Groundnut,10,Tumkur,Sira,Other,Local,0,0,6142,10 Oct 2025

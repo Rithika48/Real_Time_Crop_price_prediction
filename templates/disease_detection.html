@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(198, 40, 40, 0.8) 0%, rgba(244, 67, 54, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #c62828; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #c62828; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #c62828 0%, #f44336 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .form-section { background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .detect-btn { width: 100%; padding: 15px; background: #c62828; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .detect-btn:hover { background: #b71c1c; }
+        .result-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #c62828; margin-top: 20px; }
+        .disease-info { background: #ffebee; padding: 15px; border-radius: 8px; margin: 15px 0; }
+        .treatment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .treatment-item { background: #f8f9fa; padding: 15px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease active" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>🔬 Disease Detection</h1>
+                <p>Identify and treat crop diseases effectively</p>
+            </div>
+
+            <div class="content">
+                <div class="form-section">
+                    <h2>Disease Diagnosis</h2>
+                    <form id="diseaseForm">
+                        <div class="form-group">
+                            <label for="crop">Crop Type</label>
+                            <select id="crop" required>
+                                <option value="">Select Crop</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Maize">Maize</option>
+                                <option value="Potato">Potato</option>
+                                <option value="Onion">Onion</option>
+                                <option value="Tomato">Tomato</option>
+                                <option value="Groundnut">Groundnut</option>
+                                <option value="Cabbage">Cabbage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="symptoms">Describe Symptoms</label>
+                            <textarea id="symptoms" rows="4" placeholder="Describe what you observe: leaf color changes, spots, wilting, etc." required></textarea>
+                        </div>
+                        <button type="submit" class="detect-btn">Diagnose Disease</button>
+                    </form>
+                    <div id="diseaseResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('diseaseForm').addEventListener('submit', handleDiseaseDetection);
+        });
+        
+        async function handleDiseaseDetection(e) {
+            e.preventDefault();
+            
+            const crop = document.getElementById('crop').value;
+            const symptoms = document.getElementById('symptoms').value.toLowerCase();
+            
+            if (!crop || !symptoms) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            const diagnosis = diagnoseDiseases(crop, symptoms);
+            showDiseaseResults(crop, diagnosis);
+        }
+        
+        function diagnoseDiseases(crop, symptoms) {
+            const diseases = {
+                'Rice': {
+                    'blast': {
+                        keywords: ['spots', 'lesions', 'diamond', 'gray'],
+                        name: 'Rice Blast',
+                        severity: 'High',
+                        treatment: 'Apply Tricyclazole fungicide',
+                        prevention: 'Use resistant varieties, proper spacing'
+                    },
+                    'blight': {
+                        keywords: ['yellow', 'brown', 'leaf', 'tip'],
+                        name: 'Bacterial Leaf Blight',
+                        severity: 'Medium',
+                        treatment: 'Copper-based bactericides',
+                        prevention: 'Clean seed, avoid overhead irrigation'
+                    }
+                },
+                'Tomato': {
+                    'blight': {
+                        keywords: ['dark', 'spots', 'rings', 'leaf'],
+                        name: 'Early Blight',
+                        severity: 'Medium',
+                        treatment: 'Mancozeb or Chlorothalonil',
+                        prevention: 'Crop rotation, proper spacing'
+                    },
+                    'wilt': {
+                        keywords: ['wilting', 'yellow', 'droop'],
+                        name: 'Fusarium Wilt',
+                        severity: 'High',
+                        treatment: 'Remove infected plants, soil treatment',
+                        prevention: 'Use resistant varieties'
+                    }
+                },
+                'Potato': {
+                    'blight': {
+                        keywords: ['brown', 'spots', 'water', 'soaked'],
+                        name: 'Late Blight',
+                        severity: 'High',
+                        treatment: 'Metalaxyl + Mancozeb',
+                        prevention: 'Avoid wet conditions, proper ventilation'
+                    }
+                }
+            };
+            
+            const cropDiseases = diseases[crop] || {};
+            let bestMatch = null;
+            let maxScore = 0;
+            
+            for (const [key, disease] of Object.entries(cropDiseases)) {
+                let score = 0;
+                disease.keywords.forEach(keyword => {
+                    if (symptoms.includes(keyword)) score++;
+                });
+                
+                if (score > maxScore) {
+                    maxScore = score;
+                    bestMatch = disease;
+                }
+            }
+            
+            return bestMatch || {
+                name: 'General Stress/Nutrient Deficiency',
+                severity: 'Low',
+                treatment: 'Check soil nutrients, ensure proper watering',
+                prevention: 'Regular monitoring, balanced fertilization'
+            };
+        }
+        
+        function showDiseaseResults(crop, diagnosis) {
+            const severityColor = {
+                'High': '#f44336',
+                'Medium': '#ff9800',
+                'Low': '#4caf50'
+            };
+            
+            document.getElementById('diseaseResults').innerHTML = `
+                <div class="result-card">
+                    <h3>🔬 Disease Diagnosis for ${crop}</h3>
+                    
+                    <div class="disease-info">
+                        <h4 style="color: ${severityColor[diagnosis.severity]};">
+                            🦠 ${diagnosis.name}
+                        </h4>
+                        <p><strong>Severity Level:</strong> 
+                            <span style="color: ${severityColor[diagnosis.severity]}; font-weight: bold;">
+                                ${diagnosis.severity}
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="treatment-grid">
+                        <div class="treatment-item">
+                            <h4>💊 Treatment</h4>
+                            <p>${diagnosis.treatment}</p>
+                        </div>
+                        <div class="treatment-item">
+                            <h4>🛡️ Prevention</h4>
+                            <p>${diagnosis.prevention}</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h4>📞 Emergency Contacts</h4>
+                        <p><strong>Krishi Vigyan Kendra:</strong> 1800-180-1551</p>
+                        <p><strong>Plant Protection Helpline:</strong> 1800-425-1556</p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

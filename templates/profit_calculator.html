@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Calculator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(245, 127, 23, 0.8) 0%, rgba(255, 193, 7, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #f57f17; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #f57f17; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #f57f17 0%, #ffc107 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .form-section { background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select, .form-group input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .calc-btn { width: 100%; padding: 15px; background: #f57f17; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .calc-btn:hover { background: #ef6c00; }
+        .result-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #f57f17; margin-top: 20px; }
+        .profit-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .profit-item { background: #fff8e1; padding: 15px; border-radius: 8px; text-align: center; }
+        .profit-positive { color: #4caf50; font-weight: bold; }
+        .profit-negative { color: #f44336; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit active" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>💰 Profit Calculator</h1>
+                <p>Calculate expected profits for your crop investments</p>
+            </div>
+
+            <div class="content">
+                <div class="form-section">
+                    <h2>Calculate Crop Profitability</h2>
+                    <form id="profitForm">
+                        <div class="form-group">
+                            <label for="district">District</label>
+                            <select id="district" required>
+                                <option value="">Select District</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="commodity">Crop/Commodity</label>
+                            <select id="commodity" required>
+                                <option value="">Select Commodity</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="investment">Total Investment (₹)</label>
+                            <input type="number" id="investment" min="1000" step="100" placeholder="e.g., 50000" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="area">Farm Area (Acres)</label>
+                            <input type="number" id="area" min="0.1" step="0.1" placeholder="e.g., 2.5" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="yield">Expected Yield (Quintals)</label>
+                            <input type="number" id="yield" min="1" step="0.1" placeholder="e.g., 25.5" required>
+                        </div>
+                        
+                        <button type="submit" class="calc-btn">Calculate Profit</button>
+                    </form>
+                    
+                    <div id="profitResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOptions();
+            document.getElementById('profitForm').addEventListener('submit', handleProfitCalculation);
+        });
+        
+        async function loadOptions() {
+            try {
+                const response = await fetch('/api/options');
+                const options = await response.json();
+                
+                // Populate districts
+                const districtSelect = document.getElementById('district');
+                options.districts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+                
+                // Populate commodities
+                const commoditySelect = document.getElementById('commodity');
+                options.commodities.forEach(commodity => {
+                    const option = document.createElement('option');
+                    option.value = commodity;
+                    option.textContent = commodity;
+                    commoditySelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading options:', error);
+            }
+        }
+        
+        async function handleProfitCalculation(e) {
+            e.preventDefault();
+            
+            const data = {
+                district: document.getElementById('district').value,
+                commodity: document.getElementById('commodity').value,
+                investment: parseFloat(document.getElementById('investment').value),
+                yield: parseFloat(document.getElementById('yield').value),
+                area: parseFloat(document.getElementById('area').value)
+            };
+            
+            if (!data.district || !data.commodity || !data.investment || !data.yield || !data.area) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/calculate-profit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showProfitResults(result);
+                } else {
+                    showError(result.error);
+                }
+            } catch (error) {
+                showError('Error calculating profit: ' + error.message);
+            }
+        }
+        
+        function showProfitResults(result) {
+            const profitClass = result.profit >= 0 ? 'profit-positive' : 'profit-negative';
+            const profitIcon = result.profit >= 0 ? '📈' : '📉';
+            
+            document.getElementById('profitResults').innerHTML = `
+                <div class="result-card">
+                    <h3>💰 Profit Analysis: ${result.commodity} in ${result.district}</h3>
+                    
+                    <div class="profit-grid">
+                        <div class="profit-item">
+                            <h4>💵 Total Investment</h4>
+                            <p style="font-size: 1.3em;">₹${result.investment.toLocaleString()}</p>
+                        </div>
+                        <div class="profit-item">
+                            <h4>💰 Expected Revenue</h4>
+                            <p style="font-size: 1.3em;">₹${result.revenue.toLocaleString()}</p>
+                        </div>
+                        <div class="profit-item">
+                            <h4>${profitIcon} Net Profit</h4>
+                            <p style="font-size: 1.3em;" class="${profitClass}">₹${result.profit.toLocaleString()}</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                        <div class="profit-item">
+                            <h4>💹 Price per Quintal</h4>
+                            <p style="font-size: 1.2em;">₹${result.avgPrice.toLocaleString()}</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                        <h4>📋 Breakdown Details</h4>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Farm Area:</strong> ${result.area} acres</li>
+                            <li><strong>Expected Yield:</strong> ${result.yield} quintals</li>
+                            <li><strong>Yield per Acre:</strong> ${(result.yield/result.area).toFixed(1)} quintals/acre</li>
+                            <li><strong>Investment per Acre:</strong> ₹${(result.investment/result.area).toLocaleString()}/acre</li>
+                            <li><strong>Revenue per Acre:</strong> ₹${(result.revenue/result.area).toLocaleString()}/acre</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: ${result.profit >= 0 ? '#e8f5e8' : '#ffebee'}; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h4>💡 ${result.profit >= 0 ? 'Profitability Analysis' : 'Risk Analysis'}</h4>
+                        <p>${generateProfitAnalysis(result)}</p>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h4>📈 Recommendations</h4>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            ${generateRecommendations(result)}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateProfitAnalysis(result) {
+            if (result.profit >= 0) {
+                if (result.profit > result.investment * 0.5) {
+                    return `Excellent profitability! Your investment of ₹${result.investment.toLocaleString()} can generate ₹${result.profit.toLocaleString()} profit.`;
+                } else if (result.profit > result.investment * 0.2) {
+                    return `Good profitability. This investment shows promising returns and is worth considering.`;
+                } else {
+                    return `Moderate profitability. Consider optimizing costs or improving yield for better returns.`;
+                }
+            } else {
+                return `Loss scenario detected. Current market price of ₹${result.avgPrice} per quintal results in ₹${Math.abs(result.profit).toLocaleString()} loss. Consider alternative crops or cost reduction strategies.`;
+            }
+        }
+        
+        function generateRecommendations(result) {
+            const recommendations = [];
+            
+            if (result.profit >= 0) {
+                recommendations.push('<li>Proceed with cultivation - profitable venture</li>');
+                recommendations.push('<li>Consider increasing area if resources permit</li>');
+                if (result.roi < 30) {
+                    recommendations.push('<li>Look for ways to reduce input costs</li>');
+                    recommendations.push('<li>Explore higher-yielding varieties</li>');
+                }
+            } else {
+                recommendations.push('<li>Reconsider this crop for current season</li>');
+                recommendations.push('<li>Explore alternative crops with better margins</li>');
+                recommendations.push('<li>Negotiate better input prices with suppliers</li>');
+                recommendations.push('<li>Consider contract farming for assured prices</li>');
+            }
+            
+            recommendations.push('<li>Monitor market prices regularly</li>');
+            recommendations.push('<li>Consider crop insurance to mitigate risks</li>');
+            recommendations.push('<li>Maintain detailed cost records for future planning</li>');
+            
+            return recommendations.join('');
+        }
+        
+        function showError(message) {
+            document.getElementById('profitResults').innerHTML = `
+                <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                    <strong>Error:</strong> ${message}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

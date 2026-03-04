@@ -1,0 +1,34 @@
+commodity,sl_no,district,market,variety,grade,min_price,max_price,modal_price,price_date
+Tomato,1,Kolar,Bangarpet,Tomato,Local,700,1500,1000,23 Oct 2025
+Tomato,2,Bangalore,"Binny Mill (F&V), Bangalore",Tomato,Local,1500,1700,1600,23 Oct 2025
+Tomato,3,Chamrajnagar,Chamaraj Nagar,Tomato,Local,500,1500,1000,23 Oct 2025
+Tomato,4,Bangalore,Channapatana,Tomato,Local,900,1900,1500,23 Oct 2025
+Tomato,5,Chikmagalur,Chikkamagalore,Tomato,Local,1199,1399,1299,23 Oct 2025
+Tomato,6,Kolar,Chintamani,Tomato,Local,330,2660,1330,23 Oct 2025
+Tomato,7,Kolar,Gowribidanoor,Tomato,Local,1500,2500,2000,23 Oct 2025
+Tomato,8,Chamrajnagar,Gundlupet,Tomato,Local,1500,1500,1500,23 Oct 2025
+Tomato,9,Kalburgi,Kalburgi,Tomato,Local,500,1200,850,23 Oct 2025
+Tomato,10,Mysore,Mysore (Bandipalya),Tomato,Ref grade-1,1800,2000,1900,23 Oct 2025
+Tomato,11,Bangalore,Ramanagara,Tomato,Local,1200,1800,1500,23 Oct 2025
+Tomato,12,Shimoga,Shimoga,Tomato,Local,800,1600,1200,23 Oct 2025
+Potato,1,Kolar,Bangarpet,Local,Local,1000,2000,1700,23 Oct 2025
+Potato,2,Chikmagalur,Chikkamagalore,Other,Local,1984,2184,2084,23 Oct 2025
+Potato,3,Kolar,Gowribidanoor,Potato,Local,1500,2500,2000,23 Oct 2025
+Potato,4,Dharwad,Hubli (Amaragol),Potato,Local,1400,1900,1500,23 Oct 2025
+Potato,5,Kalburgi,Kalburgi,Potato,Local,1000,1700,1350,23 Oct 2025
+Potato,6,Shimoga,Shimoga,Local,Local,2000,3000,2500,23 Oct 2025
+Maize,1,Belgaum,Bailahongal,Hybrid/Local,Local,0,0,1612,23 Oct 2025
+Maize,2,Shimoga,Bhadravathi,Local,Local,0,0,2225,23 Oct 2025
+Maize,3,Karwar(Uttar Kannad),Haliyala,Hybrid/Local,Local,1850,1950,1900,23 Oct 2025
+Maize,4,Dharwad,Kalagategi,Local,Local,1800,1800,1800,23 Oct 2025
+Maize,5,Belgaum,Kudchi,Hybrid/Local,Local,0,0,2000,23 Oct 2025
+Coconut,1,Chamrajnagar,Chamaraj Nagar,Grade-I,Local,11000,16000,13500,23 Oct 2025
+Coconut,2,Karwar(Uttar Kannad),Kumta,Grade-I,Local,45126,48514,47689,23 Oct 2025
+Coconut,3,Mangalore(Dakshin Kannad),Sulya,Grade-I,Local,2500,3700,3000,23 Oct 2025
+Rice,1,Shimoga,Bhadravathi,Medium,Local,2400,2400,2400,23 Oct 2025
+Rice,2,Chamrajnagar,Chamaraj Nagar,Other,Local,2250,2250,2250,23 Oct 2025
+Rice,3,Dharwad,Kalagategi,CR 1009 (Coarse) Boiled,Local,2900,2900,2900,23 Oct 2025
+Rice,4,Kalburgi,Kalburgi,Broken Rice,Local,2900,4400,3500,23 Oct 2025
+Rice,5,Kalburgi,Kalburgi,Coarse,Local,3700,4700,4300,23 Oct 2025
+Rice,6,Kalburgi,Kalburgi,Fine,Local,4700,6300,5600,23 Oct 2025
+Rice,7,Madikeri(Kodagu),Somvarpet,Sarbati Raw,Ref grade-1,2700,2700,2700,23 Oct 2025

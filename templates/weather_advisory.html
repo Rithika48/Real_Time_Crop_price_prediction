@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Advisory</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(25, 118, 210, 0.8) 0%, rgba(33, 150, 243, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #1976d2; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #1976d2; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .form-section { background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .check-btn { width: 100%; padding: 15px; background: #1976d2; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .check-btn:hover { background: #1565c0; }
+        .weather-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #1976d2; margin-top: 20px; }
+        .weather-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .weather-item { background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather active" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>🌤️ Weather Advisory</h1>
+                <p>Get weather-based farming recommendations</p>
+            </div>
+
+            <div class="content">
+                <div class="form-section">
+                    <h2>Check Weather Advisory</h2>
+                    <form id="weatherForm">
+                        <div class="form-group">
+                            <label for="district">District</label>
+                            <select id="district" required>
+                                <option value="">Select District</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="check-btn">Get Weather Advisory</button>
+                    </form>
+                    <div id="weatherResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDistricts();
+            document.getElementById('weatherForm').addEventListener('submit', handleWeatherCheck);
+        });
+        
+        async function loadDistricts() {
+            try {
+                const response = await fetch('/api/options');
+                const options = await response.json();
+                const districtSelect = document.getElementById('district');
+                
+                options.districts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading districts:', error);
+            }
+        }
+        
+        async function handleWeatherCheck(e) {
+            e.preventDefault();
+            
+            const district = document.getElementById('district').value;
+            if (!district) {
+                alert('Please select a district');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/weather/${district}`);
+                const weatherData = await response.json();
+                
+                if (response.ok) {
+                    showWeatherResults(district, weatherData);
+                } else {
+                    alert('Error: ' + weatherData.error);
+                }
+            } catch (error) {
+                console.error('Error fetching weather:', error);
+                alert('Failed to fetch weather data');
+            }
+        }
+        
+        function showWeatherResults(district, data) {
+            const advisory = generateAdvisory(data);
+            
+            document.getElementById('weatherResults').innerHTML = `
+                <div class="weather-card">
+                    <h3>🌤️ Weather Advisory for ${district}</h3>
+                    <p><strong>Current Conditions:</strong> ${data.description || 'N/A'}</p>
+                    
+                    <div class="weather-info">
+                        <div class="weather-item">
+                            <h4>🌡️ Temperature</h4>
+                            <p>${data.temperature}°C</p>
+                        </div>
+                        <div class="weather-item">
+                            <h4>💧 Humidity</h4>
+                            <p>${data.humidity}%</p>
+                        </div>
+                        <div class="weather-item">
+                            <h4>🌧️ Rainfall</h4>
+                            <p>${data.rainfall}mm</p>
+                        </div>
+                        <div class="weather-item">
+                            <h4>💨 Wind Speed</h4>
+                            <p>${data.windSpeed} km/h</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h4>📋 Farming Advisory</h4>
+                        <p>${advisory}</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateAdvisory(data) {
+            let advisory = "";
+            
+            if (data.rainfall > 30) {
+                advisory += "Heavy rainfall expected. Avoid irrigation and ensure proper drainage. ";
+            } else if (data.rainfall < 10) {
+                advisory += "Low rainfall. Increase irrigation frequency. ";
+            }
+            
+            if (data.temperature > 30) {
+                advisory += "High temperature conditions. Provide shade for sensitive crops. ";
+            } else if (data.temperature < 15) {
+                advisory += "Cool weather. Protect crops from cold stress. ";
+            }
+            
+            if (data.humidity > 80) {
+                advisory += "High humidity may increase disease risk. Monitor crops closely. ";
+            }
+            
+            if (data.windSpeed > 15) {
+                advisory += "Strong winds expected. Secure tall crops and structures. ";
+            }
+            
+            return advisory || "Weather conditions are favorable for normal farming activities.";
+        }
+    </script>
+</body>
+</html>

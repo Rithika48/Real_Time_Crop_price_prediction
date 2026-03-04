@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Price Prediction</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #4CAF50; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #4CAF50; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn.update { background: #c8e6c9; color: #2e7d32; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 30px; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .form-section, .result-section { background: #f8f9fa; padding: 25px; border-radius: 10px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select, .form-group input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .form-group select:focus, .form-group input:focus { outline: none; border-color: #4CAF50; }
+        .predict-btn { width: 100%; padding: 15px; background: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .predict-btn:hover { background: #45a049; }
+        .predict-btn:disabled { background: #ccc; cursor: not-allowed; }
+        .result-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; }
+        .price-display { font-size: 2em; font-weight: bold; color: #4CAF50; text-align: center; margin: 20px 0; }
+        .result-details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .result-item { padding: 8px; background: #f8f9fa; border-radius: 5px; }
+        .error-message { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; }
+        .loading { text-align: center; padding: 20px; }
+        .spinner { border: 3px solid #f3f3f3; border-top: 3px solid #4CAF50; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto 10px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @media (max-width: 768px) { .content { grid-template-columns: 1fr; } .result-details { grid-template-columns: 1fr; } }
+        .scraper-section { background: #e8f5e9; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .scraper-btn { padding: 10px 15px; background: #388e3c; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .scraper-btn:hover { background: #2e7d32; }
+        .scraper-btn:disabled { background: #9e9e9e; cursor: not-allowed; }
+        .scraper-status { font-size: 14px; color: #333; }
+        .scraper-status.success { color: #2e7d32; }
+        .scraper-status.error { color: #c62828; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price active" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+
+        </div>
+        <div class="container">
+        <div class="header">
+            <h1>Crop Price Prediction</h1>
+            <p>Karnataka Agricultural Market Price Forecasting</p>
+        </div>
+
+        <div class="content">
+            <div class="form-section">
+                <h2>Price Prediction</h2>
+                <form id="predictionForm">
+                    <div class="form-group">
+                        <label for="district">District *</label>
+                        <select id="district" required>
+                            <option value="">Select District</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="commodity">Commodity *</label>
+                        <select id="commodity" required>
+                            <option value="">Select Commodity</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date *</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="variety">Variety (Optional)</label>
+                        <select id="variety">
+                            <option value="">Auto-select</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="market">Market (Optional)</label>
+                        <select id="market">
+                            <option value="">Auto-select</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="predict-btn" id="predictBtn">Predict Price</button>
+                </form>
+            </div>
+
+            <div class="result-section">
+                <h2>Prediction Result</h2>
+                <div id="resultContainer">
+                    <div style="text-align: center; color: #666; padding: 40px;">
+                        <p>Enter details and click "Predict Price"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        let options = {};
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOptions();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').value = today;
+            document.getElementById('date').min = today;
+
+            document.getElementById('predictionForm').addEventListener('submit', handleSubmit);
+
+            // Add dynamic filtering
+            document.getElementById('district').addEventListener('change', updateFilteredOptions);
+            document.getElementById('commodity').addEventListener('change', updateFilteredOptions);
+            
+            // Clear results when form changes
+            ['district', 'commodity', 'date', 'variety', 'market'].forEach(id => {
+                document.getElementById(id).addEventListener('change', clearResults);
+            });
+        });
+
+        async function updateFilteredOptions() {
+            const district = document.getElementById('district').value;
+            const commodity = document.getElementById('commodity').value;
+
+            // Only call the API if at least one filter is selected
+            if (district || commodity) {
+                try {
+                    const response = await fetch('/api/filtered-options', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ district, commodity })
+                    });
+
+                    const filteredOptions = await response.json();
+
+                    // Update dropdowns with filtered options
+                    populateSelect('market', filteredOptions.markets);
+                    populateSelect('variety', filteredOptions.varieties);
+
+                } catch (error) {
+                    console.error('Error loading filtered options:', error);
+                }
+            }
+        }
+
+        async function loadOptions() {
+            try {
+                const response = await fetch('/api/options');
+                options = await response.json();
+                populateDropdowns();
+            } catch (error) {
+                showError('Failed to load options: ' + error.message);
+            }
+        }
+
+        function populateDropdowns() {
+            populateSelect('district', options.districts);
+            populateSelect('commodity', options.commodities);
+            populateSelect('variety', options.varieties);
+            populateSelect('market', options.markets);
+        }
+
+        function populateSelect(id, items) {
+            const select = document.getElementById(id);
+            const firstOption = select.firstElementChild.cloneNode(true);
+            select.innerHTML = '';
+            select.appendChild(firstOption);
+            
+            if (items && items.length > 0) {
+                items.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
+                    select.appendChild(option);
+                });
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('resultContainer').innerHTML = `
+                <div style="text-align: center; color: #666; padding: 40px;">
+                    <p>Enter details and click "Predict Price"</p>
+                </div>
+            `;
+            document.getElementById('predictBtn').disabled = false;
+            document.getElementById('predictBtn').textContent = 'Predict Price';
+        }
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+            
+            const data = {
+                district: document.getElementById('district').value,
+                commodity: document.getElementById('commodity').value,
+                date: document.getElementById('date').value,
+                variety: document.getElementById('variety').value || null,
+                market: document.getElementById('market').value || null
+            };
+            
+            if (!data.district || !data.commodity || !data.date) {
+                showError('Please fill in District, Commodity, and Date');
+                return;
+            }
+            
+            showLoading();
+            
+            try {
+                const response = await fetch('/api/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                if (!response.ok) {
+                    const text = await response.text();
+                    showError(`Server error (${response.status}): ${text.substring(0, 100)}`);
+                    return;
+                }
+                
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    const text = await response.text();
+                    showError('Server returned non-JSON response: ' + text.substring(0, 100));
+                    return;
+                }
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showResult(result);
+                } else {
+                    showError(result.error || 'Unknown error');
+                }
+            } catch (error) {
+                console.error('Full error:', error);
+                showError('Connection error: ' + error.message);
+            }
+        }
+
+        function showLoading() {
+            document.getElementById('resultContainer').innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Calculating prediction...</p>
+                </div>
+            `;
+            document.getElementById('predictBtn').disabled = true;
+            document.getElementById('predictBtn').textContent = 'Predicting...';
+        }
+
+        function showResult(result) {
+            document.getElementById('resultContainer').innerHTML = `
+                <div class="result-card">
+                    <div class="price-display">₹ ${result.predicted_price} / Quintal</div>
+                    <div class="result-details">
+                        <div class="result-item"><strong>District:</strong> ${result.district}</div>
+                        <div class="result-item"><strong>Market:</strong> ${result.market}</div>
+                        <div class="result-item"><strong>Commodity:</strong> ${result.commodity}</div>
+                        <div class="result-item"><strong>Variety:</strong> ${result.variety || 'Default'}</div>
+
+                        <div class="result-item"><strong>Date:</strong> ${result.date}</div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('predictBtn').disabled = false;
+            document.getElementById('predictBtn').textContent = 'Predict Price';
+        }
+
+        function showError(message) {
+            document.getElementById('resultContainer').innerHTML = `
+                <div class="error-message">
+                    <strong>Error:</strong> ${message}
+                </div>
+            `;
+            document.getElementById('predictBtn').disabled = false;
+            document.getElementById('predictBtn').textContent = 'Predict Price';
+        }
+
+
+    </script>
+</body>
+</html>

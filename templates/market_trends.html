@@ -1,0 +1,528 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Trends</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(0, 105, 92, 0.8) 0%, rgba(0, 150, 136, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #00695c; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #00695c; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #00695c 0%, #00897b 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .form-section { background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .analyze-btn { width: 100%; padding: 15px; background: #00695c; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .analyze-btn:hover { background: #004d40; }
+        .result-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #00695c; margin-top: 20px; }
+        .trend-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .trend-item { background: #e0f2f1; padding: 15px; border-radius: 8px; text-align: center; }
+        .price-chart { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market active" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>📊 Market Trends</h1>
+                <p>Analyze market patterns and price movements</p>
+            </div>
+
+            <div class="content">
+                <div class="form-section">
+                    <h2>Market Analysis</h2>
+                    <form id="marketForm">
+                        <div class="form-group">
+                            <label for="commodity">Commodity</label>
+                            <select id="commodity" required>
+                                <option value="">Select Commodity</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Maize">Maize</option>
+                                <option value="Potato">Potato</option>
+                                <option value="Onion">Onion</option>
+                                <option value="Tomato">Tomato</option>
+                                <option value="Groundnut">Groundnut</option>
+                                <option value="Cabbage">Cabbage</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeframe">Time Frame</label>
+                            <select id="timeframe" required>
+                                <option value="">Select Time Frame</option>
+                                <option value="7days">Last 7 Days</option>
+                                <option value="1month">Last Month</option>
+                                <option value="3months">Last 3 Months</option>
+                                <option value="6months">Last 6 Months</option>
+                                <option value="1year">Last Year</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="analyze-btn">Analyze Market Trends</button>
+                    </form>
+                    
+                    <div id="marketResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('marketForm').addEventListener('submit', handleMarketAnalysis);
+        });
+        
+        async function handleMarketAnalysis(e) {
+            e.preventDefault();
+            
+            const commodity = document.getElementById('commodity').value;
+            const timeframe = document.getElementById('timeframe').value;
+            
+            if (!commodity || !timeframe) {
+                alert('Please select both commodity and timeframe');
+                return;
+            }
+            
+            const marketData = generateMarketData(commodity, timeframe);
+            showMarketResults(commodity, timeframe, marketData);
+        }
+        
+        function generateMarketData(commodity, timeframe) {
+            // Base prices for different commodities
+            const basePrices = {
+                'Rice': 2200, 'Wheat': 2100, 'Maize': 1900, 'Potato': 1600,
+                'Onion': 2800, 'Tomato': 3200, 'Groundnut': 4200, 'Cabbage': 1400
+            };
+            
+            const basePrice = basePrices[commodity];
+            const variation = basePrice * 0.15; // 15% variation
+            
+            // Generate trend data
+            const currentPrice = basePrice + (Math.random() - 0.5) * variation;
+            const weekAgo = currentPrice + (Math.random() - 0.5) * (variation * 0.5);
+            const monthAgo = currentPrice + (Math.random() - 0.5) * variation;
+            
+            const trend = currentPrice > weekAgo ? 'Rising' : 'Falling';
+            const trendPercentage = Math.abs(((currentPrice - weekAgo) / weekAgo) * 100).toFixed(1);
+            
+            return {
+                currentPrice: Math.round(currentPrice),
+                weekAgo: Math.round(weekAgo),
+                monthAgo: Math.round(monthAgo),
+                trend: trend,
+                trendPercentage: trendPercentage,
+                volatility: Math.random() > 0.5 ? 'High' : 'Moderate',
+                marketSentiment: Math.random() > 0.5 ? 'Bullish' : 'Bearish',
+                tradingVolume: Math.floor(Math.random() * 1000) + 500
+            };
+        }
+        
+        function showMarketResults(commodity, timeframe, data) {
+            const trendColor = data.trend === 'Rising' ? '#4caf50' : '#f44336';
+            const trendIcon = data.trend === 'Rising' ? '📈' : '📉';
+            
+            document.getElementById('marketResults').innerHTML = `
+                <div class="result-card">
+                    <h3>📊 Market Analysis: ${commodity} (${getTimeframeLabel(timeframe)})</h3>
+                    
+                    <div class="trend-grid">
+                        <div class="trend-item">
+                            <h4>Current Price</h4>
+                            <p style="font-size: 1.5em; font-weight: bold;">₹${data.currentPrice}</p>
+                        </div>
+                        <div class="trend-item">
+                            <h4>Price Trend</h4>
+                            <p style="color: ${trendColor}; font-weight: bold;">
+                                ${trendIcon} ${data.trend} ${data.trendPercentage}%
+                            </p>
+                        </div>
+                        <div class="trend-item">
+                            <h4>Market Sentiment</h4>
+                            <p style="font-weight: bold;">${data.marketSentiment}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="price-chart">
+                        <h4>Price Movement Chart</h4>
+                        <div style="display: flex; justify-content: space-around; align-items: end; height: 100px; margin: 20px 0;">
+                            <div style="text-align: center;">
+                                <div style="background: #00695c; width: 40px; height: ${(data.monthAgo/data.currentPrice)*80}px; margin: 0 auto;"></div>
+                                <small>Month Ago<br>₹${data.monthAgo}</small>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #00897b; width: 40px; height: ${(data.weekAgo/data.currentPrice)*80}px; margin: 0 auto;"></div>
+                                <small>Week Ago<br>₹${data.weekAgo}</small>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #4db6ac; width: 40px; height: 80px; margin: 0 auto;"></div>
+                                <small>Current<br>₹${data.currentPrice}</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h4>💡 Market Insights</h4>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            ${generateMarketInsights(commodity, data)}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                </div>
+            `;
+        }
+        
+        function getTimeframeLabel(timeframe) {
+            const labels = {
+                '7days': 'Last 7 Days',
+                '1month': 'Last Month',
+                '3months': 'Last 3 Months',
+                '6months': 'Last 6 Months',
+                '1year': 'Last Year'
+            };
+            return labels[timeframe];
+        }
+        
+        function generateMarketInsights(commodity, data) {
+            const insights = [];
+            
+            if (data.trend === 'Rising') {
+                insights.push('<li>Prices showing upward momentum - good time for selling</li>');
+                insights.push('<li>Demand appears to be outpacing supply</li>');
+            } else {
+                insights.push('<li>Prices under pressure - consider holding for better rates</li>');
+                insights.push('<li>Market may be oversupplied currently</li>');
+            }
+            
+            if (data.volatility === 'High') {
+                insights.push('<li>High volatility indicates uncertain market conditions</li>');
+            } else {
+                insights.push('<li>Moderate volatility suggests stable market conditions</li>');
+            }
+            
+            insights.push('<li>Monitor weather patterns for potential price impacts</li>');
+            insights.push('<li>Check government policy announcements affecting ' + commodity + '</li>');
+            
+            return insights.join('');
+        }
+        
+        function generateRecommendations(data) {
+            if (data.trend === 'Rising' && data.marketSentiment === 'Bullish') {
+                return 'Strong BUY signal - Market conditions favor sellers. Consider selling current stock.';
+            } else if (data.trend === 'Falling' && data.marketSentiment === 'Bearish') {
+                return 'HOLD signal - Wait for market recovery before selling. Focus on storage and quality maintenance.';
+            } else {
+                return 'NEUTRAL signal - Monitor market closely. Consider partial selling to test market response.';
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Trends</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(0, 105, 92, 0.8) 0%, rgba(0, 150, 136, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #00695c; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #00695c; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #00695c 0%, #00897b 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .form-section { background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .analyze-btn { width: 100%; padding: 15px; background: #00695c; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .analyze-btn:hover { background: #004d40; }
+        .result-card { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #00695c; margin-top: 20px; }
+        .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .trend-item { background: #e0f2f1; padding: 15px; border-radius: 8px; text-align: center; }
+        .price-chart { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market active" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update-data" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>📊 Market Trends</h1>
+                <p>Analyze market patterns and price movements</p>
+            </div>
+
+            <div class="content">
+                <div class="form-section">
+                    <h2>Market Analysis</h2>
+                    <form id="marketForm">
+                        <div class="form-group">
+                            <label for="commodity">Commodity</label>
+                            <select id="commodity" required>
+                                <option value="">Select Commodity</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Maize">Maize</option>
+                                <option value="Potato">Potato</option>
+                                <option value="Onion">Onion</option>
+                                <option value="Tomato">Tomato</option>
+                                <option value="Groundnut">Groundnut</option>
+                                <option value="Cabbage">Cabbage</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeframe">Time Frame</label>
+                            <select id="timeframe" required>
+                                <option value="">Select Time Frame</option>
+                                <option value="7days">Last 7 Days</option>
+                                <option value="1month">Last Month</option>
+                                <option value="3months">Last 3 Months</option>
+                                <option value="6months">Last 6 Months</option>
+                                <option value="1year">Last Year</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="analyze-btn">Analyze Market Trends</button>
+                    </form>
+                    
+                    <div id="marketResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cachedResults = {};
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('marketForm').addEventListener('submit', handleMarketAnalysis);
+        });
+        
+        async function handleMarketAnalysis(e) {
+            e.preventDefault();
+            
+            const commodity = document.getElementById('commodity').value;
+            const timeframe = document.getElementById('timeframe').value;
+            
+            if (!commodity || !timeframe) {
+                alert('Please select both commodity and timeframe');
+                return;
+            }
+            
+            const cacheKey = `${commodity}_${timeframe}`;
+            let marketData;
+            
+            if (cachedResults[cacheKey]) {
+                marketData = cachedResults[cacheKey];
+            } else {
+                marketData = generateMarketData(commodity, timeframe);
+                cachedResults[cacheKey] = marketData;
+            }
+            
+            showMarketResults(commodity, timeframe, marketData);
+        }
+        
+        function generateMarketData(commodity, timeframe) {
+            // Base prices for different commodities
+            const basePrices = {
+                'Rice': 2200, 'Wheat': 2100, 'Maize': 1900, 'Potato': 1600,
+                'Onion': 2800, 'Tomato': 3200, 'Groundnut': 4200, 'Cabbage': 1400
+            };
+            
+            const basePrice = basePrices[commodity];
+            const variation = basePrice * 0.15; // 15% variation
+            
+            // Generate trend data
+            const currentPrice = basePrice + (Math.random() - 0.5) * variation;
+            const weekAgo = currentPrice + (Math.random() - 0.5) * (variation * 0.5);
+            const monthAgo = currentPrice + (Math.random() - 0.5) * variation;
+            
+            const trend = currentPrice > weekAgo ? 'Rising' : 'Falling';
+            const trendPercentage = Math.abs(((currentPrice - weekAgo) / weekAgo) * 100).toFixed(1);
+            
+            return {
+                currentPrice: Math.round(currentPrice),
+                weekAgo: Math.round(weekAgo),
+                monthAgo: Math.round(monthAgo),
+                trend: trend,
+                trendPercentage: trendPercentage,
+                volatility: Math.random() > 0.5 ? 'High' : 'Moderate',
+                marketSentiment: Math.random() > 0.5 ? 'Bullish' : 'Bearish',
+                tradingVolume: Math.floor(Math.random() * 1000) + 500
+            };
+        }
+        
+        function showMarketResults(commodity, timeframe, data) {
+            const trendColor = data.trend === 'Rising' ? '#4caf50' : '#f44336';
+            const trendIcon = data.trend === 'Rising' ? '📈' : '📉';
+            
+            document.getElementById('marketResults').innerHTML = `
+                <div class="result-card">
+                    <h3>📊 Market Analysis: ${commodity} (${getTimeframeLabel(timeframe)})</h3>
+                    
+                    <div class="trend-grid">
+                        <div class="trend-item">
+                            <h4>Current Price</h4>
+                            <p style="font-size: 1.5em; font-weight: bold;">₹${data.currentPrice}</p>
+                        </div>
+                        <div class="trend-item">
+                            <h4>Price Trend</h4>
+                            <p style="color: ${trendColor}; font-weight: bold;">
+                                ${trendIcon} ${data.trend} ${data.trendPercentage}%
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="price-chart">
+                        <h4>Price Movement Chart</h4>
+                        <div style="display: flex; justify-content: space-around; align-items: end; height: 100px; margin: 20px 0;">
+                            <div style="text-align: center;">
+                                <div style="background: #00695c; width: 40px; height: ${(data.monthAgo/data.currentPrice)*80}px; margin: 0 auto;"></div>
+                                <small>Month Ago<br>₹${data.monthAgo}</small>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #00897b; width: 40px; height: ${(data.weekAgo/data.currentPrice)*80}px; margin: 0 auto;"></div>
+                                <small>Week Ago<br>₹${data.weekAgo}</small>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #4db6ac; width: 40px; height: 80px; margin: 0 auto;"></div>
+                                <small>Current<br>₹${data.currentPrice}</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h4>💡 Market Insights</h4>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            ${generateMarketInsights(commodity, data)}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                </div>
+            `;
+        }
+        
+        function getTimeframeLabel(timeframe) {
+            const labels = {
+                '7days': 'Last 7 Days',
+                '1month': 'Last Month',
+                '3months': 'Last 3 Months',
+                '6months': 'Last 6 Months',
+                '1year': 'Last Year'
+            };
+            return labels[timeframe];
+        }
+        
+        function generateMarketInsights(commodity, data) {
+            const insights = [];
+            
+            if (data.trend === 'Rising') {
+                insights.push('<li>Prices showing upward momentum - good time for selling</li>');
+                insights.push('<li>Demand appears to be outpacing supply</li>');
+            } else {
+                insights.push('<li>Prices under pressure - consider holding for better rates</li>');
+                insights.push('<li>Market may be oversupplied currently</li>');
+            }
+            
+            if (data.volatility === 'High') {
+                insights.push('<li>High volatility indicates uncertain market conditions</li>');
+            } else {
+                insights.push('<li>Moderate volatility suggests stable market conditions</li>');
+            }
+            
+            insights.push('<li>Monitor weather patterns for potential price impacts</li>');
+            insights.push('<li>Check government policy announcements affecting ' + commodity + '</li>');
+            
+            return insights.join('');
+        }
+        
+        function generateRecommendations(data) {
+            if (data.trend === 'Rising' && data.marketSentiment === 'Bullish') {
+                return 'Strong BUY signal - Market conditions favor sellers. Consider selling current stock.';
+            } else if (data.trend === 'Falling' && data.marketSentiment === 'Bearish') {
+                return 'HOLD signal - Wait for market recovery before selling. Focus on storage and quality maintenance.';
+            } else {
+                return 'NEUTRAL signal - Monitor market closely. Consider partial selling to test market response.';
+            }
+        }
+    </script>
+</body>
+</html>

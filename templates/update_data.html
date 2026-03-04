@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Market Data</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.8) 0%, rgba(46, 125, 50, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 20px; align-items: flex-start; }
+        .sidebar { width: 250px; background: rgba(255,255,255,0.95); border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #388e3c; margin-bottom: 20px; text-align: center; }
+        .nav-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .nav-btn.active { background: #388e3c; color: white; }
+        .nav-btn.price { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.rotation { background: #fff3e0; color: #f57c00; }
+        .nav-btn.demand { background: #e8f5e8; color: #388e3c; }
+        .nav-btn.weather { background: #e3f2fd; color: #1976d2; }
+        .nav-btn.fertilizer { background: #f3e5f5; color: #7b1fa2; }
+        .nav-btn.disease { background: #ffebee; color: #c62828; }
+        .nav-btn.market { background: #e0f2f1; color: #00695c; }
+        .nav-btn.profit { background: #fff8e1; color: #f57f17; }
+        .nav-btn.chatbot { background: #e8eaf6; color: #3f51b5; }
+        .nav-btn.update { background: #c8e6c9; color: #2e7d32; }
+
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .container { flex: 1; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .sidebar { width: 100%; } }
+        .header { background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 30px; }
+        .scraper-card { background: #f8f9fa; padding: 40px; border-radius: 10px; text-align: center; }
+        .scraper-btn { padding: 15px 30px; font-size: 18px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
+        .scraper-btn:hover { background: #45a049; }
+        .scraper-btn:disabled { background: #9e9e9e; cursor: not-allowed; }
+        .scraper-status { font-size: 16px; color: #333; margin-top: 20px; min-height: 24px; }
+        .scraper-status.success { color: #2e7d32; font-weight: bold; }
+        .scraper-status.error { color: #c62828; font-weight: bold; }
+        .data-table-container { margin-top: 30px; max-height: 400px; overflow-y: auto; border: 1px solid #ddd; border-radius: 8px; }
+        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        .data-table th { background-color: #f2f2f2; position: sticky; top: 0; }
+        .data-table tr:nth-child(even) { background-color: #f9f9f9; }
+        .data-table tr:hover { background-color: #f1f1f1; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="sidebar">
+            <h3>🌾 Explore</h3>
+            <button class="nav-btn price" onclick="window.location.href='/dashboard'">📊 Price Prediction</button>
+            <button class="nav-btn rotation" onclick="window.location.href='/crop-rotation'">🔄 Crop Rotation</button>
+            <button class="nav-btn demand" onclick="window.location.href='/high-demand'">📈 High Demand Crops</button>
+            <button class="nav-btn weather" onclick="window.location.href='/weather-advisory'">🌤️ Weather Advisory</button>
+            <button class="nav-btn fertilizer" onclick="window.location.href='/fertilizer-calc'">🧪 Fertilizer Calculator</button>
+            <button class="nav-btn disease" onclick="window.location.href='/disease-detection'">🔬 Disease Detection</button>
+            <button class="nav-btn market" onclick="window.location.href='/market-trends'">📊 Market Trends</button>
+            <button class="nav-btn profit" onclick="window.location.href='/profit-calculator'">💰 Profit Calculator</button>
+            <button class="nav-btn update active" onclick="window.location.href='/update-data'">🔄 Update Data</button>
+
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>🔄 Update Market Data</h1>
+                <p>Fetch the latest crop prices from the official market portal.</p>
+            </div>
+            <div class="content">
+                <div class="scraper-card">
+                    <button class="scraper-btn" id="updateDataBtn" onclick="runScraper()">Start Data Update</button>
+                    <button class="scraper-btn" id="trainModelBtn" onclick="trainModel()" style="margin-left: 20px; background: #ff9800;">Train Model</button>
+                    <div id="scraperStatus" class="scraper-status">
+                        Click the button to begin fetching new data or train the model.
+                    </div>
+                    <div id="dataTableContainer" class="data-table-container hidden">
+                        <table id="dataTable" class="data-table"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function runScraper() {
+            const statusDiv = document.getElementById('scraperStatus');
+            const tableContainer = document.getElementById('dataTableContainer');
+            const scraperBtn = document.getElementById('updateDataBtn');
+
+            statusDiv.textContent = 'Fetching new data... This may take up to a minute. Please wait.';
+            statusDiv.className = 'scraper-status';
+            scraperBtn.disabled = true;
+            scraperBtn.textContent = 'Updating...';
+
+            tableContainer.classList.add('hidden'); // Hide previous results
+
+            try {
+                const response = await fetch('/api/run-scraper', { method: 'POST' });
+                const result = await response.json();
+
+                if (result.success) {
+                    statusDiv.textContent = result.message;
+                    statusDiv.classList.add('success');
+                    if (result.data && result.data.length > 0) {
+                        displayData(result.data);
+                    }
+                } else {
+                    statusDiv.textContent = result.message || 'An unknown error occurred.';
+                    statusDiv.classList.add('error');
+                }
+            } catch (error) {
+                console.error('Scraper fetch error:', error);
+                statusDiv.textContent = 'Error connecting to the server.';
+                statusDiv.classList.add('error');
+            } finally {
+                scraperBtn.disabled = false;
+                scraperBtn.textContent = 'Start Data Update';
+            }
+        }
+
+        async function trainModel() {
+            const statusDiv = document.getElementById('scraperStatus');
+            const trainBtn = document.getElementById('trainModelBtn');
+            const updateBtn = document.getElementById('updateDataBtn');
+
+            statusDiv.textContent = 'Training model... This may take several minutes. Please wait.';
+            statusDiv.className = 'scraper-status';
+            trainBtn.disabled = true;
+            updateBtn.disabled = true;
+            trainBtn.textContent = 'Training...';
+
+            try {
+                const response = await fetch('/api/train-model', { method: 'POST' });
+                const result = await response.json();
+
+                if (result.success) {
+                    statusDiv.textContent = result.message;
+                    statusDiv.classList.add('success');
+                } else {
+                    statusDiv.textContent = result.message || 'Model training failed.';
+                    statusDiv.classList.add('error');
+                }
+            } catch (error) {
+                console.error('Training error:', error);
+                statusDiv.textContent = 'Error connecting to the server.';
+                statusDiv.classList.add('error');
+            } finally {
+                trainBtn.disabled = false;
+                updateBtn.disabled = false;
+                trainBtn.textContent = 'Train Model';
+            }
+        }
+
+        function displayData(data) {
+            const tableContainer = document.getElementById('dataTableContainer');
+            const table = document.getElementById('dataTable');
+            table.innerHTML = ''; // Clear existing table
+
+            if (!data || data.length === 0) {
+                tableContainer.classList.add('hidden');
+                return;
+            }
+
+            // Create header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            const headers = Object.keys(data[0]);
+            headers.forEach(headerText => {
+                const th = document.createElement('th');
+                th.textContent = headerText;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Create body
+            const tbody = document.createElement('tbody');
+            data.forEach(rowData => {
+                const row = document.createElement('tr');
+                headers.forEach(header => {
+                    const td = document.createElement('td');
+                    td.textContent = rowData[header];
+                    row.appendChild(td);
+                });
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+
+            tableContainer.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
