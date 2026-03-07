@@ -211,6 +211,11 @@ The trained model is stored using **Pickle / Joblib** and loaded during applicat
 
 ## 🏠 Home Page
 
+The home page introduces the **Smart Crop Price Predictor**, an AI-powered platform designed to help farmers make data-driven agricultural decisions.
+
+It highlights key features such as **Price Prediction, Crop Recommendations, Profit Analysis, and Market Trends**.
+
+
 <p align="center">
   <img src="screenshots/home1.png" width="48%" />
   <img src="screenshots/home2.png" width="48%" />
