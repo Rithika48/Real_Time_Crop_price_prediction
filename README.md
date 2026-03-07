@@ -205,6 +205,16 @@ The crop price prediction model is built using **XGBoost (Extreme Gradient Boost
 The trained model is stored using **Pickle / Joblib** and loaded during application startup.
 
 ---
+## 📷 Screenshots
+
+### Home page
+
+## 🏠 Home Page
+
+<p align="center">
+  <img src="screenshots/home1.png" width="48%" />
+  <img src="screenshots/home2.png" width="48%" />
+</p>
 
 
 
