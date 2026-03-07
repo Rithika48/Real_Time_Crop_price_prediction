@@ -226,5 +226,30 @@ The system analyzes agricultural market data and instantly displays the **expect
 
 ![Price Prediction Page](screenshots/prediction.png)
 
+## 🌱 Crop Rotation Recommendation Page
 
+<p align="center">
+  <img src="screenshots/crop_rotation1.png" width="48%" />
+  <img src="screenshots/crop_rotation2.png" width="48%" />
+</p>
+
+## 📈 High Demand Crops
+
+<p align="center">
+  <img src="screenshots/High_deamand1.png" width="48%" />
+  <img src="screenshots/High_demand2.png" width="48%" />
+</p>
+
+## ☁️ Weather Advisory
+
+![Price Prediction Page](screenshots/weather.png)
+
+## 🧪 Fertilizer Calculator
+
+<p align="center">
+  <img src="screenshots/Fertilizer1.png" width="48%" />
+  <img src="screenshots/Fertilizer2.png" width="48%" />
+</p>
+
+## 🦠 Disease Detection
 
