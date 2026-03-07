@@ -91,26 +91,120 @@ The dataset contains **multiple years of agricultural market data**, allowing th
 
 # ⚙️ How to Run
 
-### 1. Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/Rithika48/Real_Time_Crop-price-prediction.git
+git clone https://github.com/yourusername/crop-price-prediction.git
+```
 
-### 2. Navigate to the Folder
+### 2️⃣ Navigate to the Project Folder
 
+```bash
 cd crop-price-prediction
+```
 
-### 3. Install Dependencies
+### 3️⃣ Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-### 4. Run the Application
+### 4️⃣ Run the Application
 
+```bash
 python app.py
+```
 
-### 5. Open in Browser
+### 5️⃣ Open in Browser
 
+```
 http://localhost:5001
+```
+
+# 🧠 System Architecture
+
+```
+User Interface (HTML/CSS/JS)
+        │
+        ▼
+Flask Web Application
+        │
+        ▼
+Data Processing (Pandas / NumPy)
+        │
+        ▼
+Machine Learning Model (XGBoost)
+        │
+        ▼
+Prediction & Smart Farming Insights
+```
+
+The system processes user inputs, converts them into numerical features, and feeds them into the trained machine learning model to generate predictions and recommendations.
+
+# 📂 Project Structure
+
+```
+crop-price-prediction
+│
+├── templates
+│   ├── index.html
+│   ├── profit_calculator.html
+│   ├── crop_rotation.html
+│   ├── fertilizer_calc.html
+│   ├── weather_advisory.html
+│   ├── market_trends.html
+│
+├── models
+│   ├── xgb_modal_price_model.pkl
+│   ├── final_crop_model.pkl
+│   ├── final_encoders.pkl
+│
+├── data
+│   ├── final_complete_data.csv
+│   ├── karnataka_crop_prices.csv
+│
+├── scrapers
+│   ├── karnataka_crop_scraper.py
+│   ├── multi_crop_scraper.py
+│
+├── training
+│   ├── train_model.py
+│   ├── train_final_model.py
+│
+├── app.py
+├── requirements.txt
+└── README.md
+```
+
+# 📈 Machine Learning Model
+
+The crop price prediction model is built using **XGBoost (Extreme Gradient Boosting)**.
+
+### Features Used
+
+- District
+- Market
+- Commodity
+- Variety
+- Grade
+- Year
+- Month
+- Day
+- Day of Year
+- Week of Year
+
+### Model Workflow
+
+1️⃣ Data Collection  
+2️⃣ Data Cleaning  
+3️⃣ Feature Engineering  
+4️⃣ Model Training (XGBoost)  
+5️⃣ Model Evaluation  
+6️⃣ Model Deployment using Flask  
+
+The trained model is stored using **Pickle / Joblib** and loaded during application startup.
+
+---
 
 
 
