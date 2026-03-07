@@ -66,4 +66,51 @@ This project aims to solve this problem by developing a **machine learning-based
 - BeautifulSoup
 - Requests
 
+# 📊 Dataset
+
+The model is trained using **historical agricultural market price data** collected from government agricultural sources.
+
+The dataset contains fields such as:
+
+- District
+- Market
+- Commodity
+- Variety
+- Grade
+- Arrival Date
+- Modal Price
+
+### Example Dataset Format
+
+| District | Market | Commodity | Variety | Grade | Date | Modal Price |
+|--------|--------|--------|--------|--------|--------|--------|
+| Bangalore | Yeshwantpur | Rice | Basmati | FAQ | 15-01-2024 | 2500 |
+| Mysore | Mysore Market | Wheat | Local | FAQ | 16-01-2024 | 2200 |
+
+The dataset contains **multiple years of agricultural market data**, allowing the model to learn seasonal and geographical price patterns.
+
+# ⚙️ How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Rithika48/Real_Time_Crop-price-prediction.git
+
+### 2. Navigate to the Folder
+
+cd crop-price-prediction
+
+### 3. Install Dependencies
+
+pip install -r requirements.txt
+
+### 4. Run the Application
+
+python app.py
+
+### 5. Open in Browser
+
+http://localhost:5001
+
+
 
