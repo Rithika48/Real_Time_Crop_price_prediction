@@ -207,6 +207,7 @@ The trained model is stored using **Pickle / Joblib** and loaded during applicat
 ---
 ## 📷 Screenshots
 
+
 ## 🏠 Home Page
 
 
@@ -223,7 +224,8 @@ It highlights key features such as **Price Prediction, Crop Recommendations, Pro
 
 ## 🔍 Price Prediction Page
 
-This page allows users to select the **district, commodity, date, and market details** to generate an AI-powered crop price prediction.  
+This page allows users to select the **district, commodity, date, and market details** to generate an AI-powered crop price prediction. 
+
 The system analyzes agricultural market data and instantly displays the **expected price per quintal** to support better farming and selling decisions.
 
 ![Price Prediction Page](screenshots/prediction.png)
@@ -232,6 +234,7 @@ The system analyzes agricultural market data and instantly displays the **expect
 ## 🌱 Crop Rotation Recommendation Page
 
 This page analyzes factors such as **soil type, season, previous crop, and market district** to recommend the most profitable crop to cultivate.  
+
 It provides insights including **expected profit, ROI, harvest time, and risk level** to help farmers make smarter planting decisions.
 
 <p align="center">
@@ -241,6 +244,10 @@ It provides insights including **expected profit, ROI, harvest time, and risk le
 
 
 ## 📈 High Demand Crops Page
+
+This page analyzes market data to identify the **top high-demand crops in a selected district and month**. 
+
+It helps farmers discover **profitable crops by showing demand scores and average market prices**.
 
 <p align="center">
   <img src="screenshots/High_deamand1.png" width="48%" />
