@@ -322,17 +322,17 @@ This page updates the system with latest agricultural market data collected thro
 
 Possible future enhancements include:
 
-Integrating satellite crop monitoring data
+ - Integrating satellite crop monitoring data
 
-Using deep learning models (LSTM) for time-series forecasting
+ - Using deep learning models (LSTM) for time-series forecasting
 
-Building a mobile application for farmers
+ - Building a mobile application for farmers
 
-Adding multi-language support for regional farmers
+ - Adding multi-language support for regional farmers
 
-Integrating real-time government market APIs
+ - Integrating real-time government market APIs
 
-Using cloud databases instead of CSV storage
+ - Using cloud databases instead of CSV storage
 
 ### Impact
 
