@@ -338,4 +338,4 @@ Possible future enhancements include:
 
 This project demonstrates how machine learning, data analytics, and web technologies can be used to support modern agriculture.
 
-By providing price predictions, market insights, farming recommendations, High demanded crops, Weather Advisory, Fertilizer Calculator, Profit Calculator and Updated data the system helps farmers make smarter and more profitable agricultural decisions.
+By providing price predictions, market insights, farming recommendations, High demanded crops, Weather Advisory, Fertilizer Calculator, Profit Calculator and Updated data pages, the system helps farmers make smarter and more profitable agricultural decisions.
