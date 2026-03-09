@@ -268,6 +268,8 @@ Provides real-time weather information for a selected district and generates far
 
 ## 🧪 Fertilizer Calculator Page
 
+This page calculates the required fertilizer quantities based on crop type, soil type, and farm area to improve crop productivity.
+
 
 <p align="center">
   <img src="screenshots/Fertilizer1.png" width="48%" />
@@ -277,6 +279,7 @@ Provides real-time weather information for a selected district and generates far
 
 ## 🦠 Disease Detection Page
 
+Helps farmers identify possible crop diseases based on observed symptoms and suggests preventive measures.
 
 <p align="center">
   <img src="screenshots/disease1.png" width="48%" />
@@ -285,6 +288,8 @@ Provides real-time weather information for a selected district and generates far
 
 
 ## 📊 Market Trends Page
+
+This page analyzes historical crop price movements to show market trends and help farmers plan selling strategies.
 
 
 <p align="center">
@@ -295,6 +300,8 @@ Provides real-time weather information for a selected district and generates far
 
 ## 💰 Profit Calculator Page
 
+This page estimates the expected profit from a crop using predicted price, yield, and production costs.
+
 
 <p align="center">
   <img src="screenshots/proft1.png" width="48%" />
@@ -303,6 +310,8 @@ Provides real-time weather information for a selected district and generates far
 
 
 ## 🔄 Update Data Page
+
+This page updates the system with latest agricultural market data collected through web scraping from government portals.
 
 
 ![Price Prediction Page](screenshots/train1.png)
